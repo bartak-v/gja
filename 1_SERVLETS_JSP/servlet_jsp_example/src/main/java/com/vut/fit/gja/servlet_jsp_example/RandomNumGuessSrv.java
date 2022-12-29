@@ -82,16 +82,20 @@ public class RandomNumGuessSrv extends HttpServlet {
             response.addCookie(new Cookie("uname", uname));
             username = uname;
         } else {
-
             Cookie cookies[] = request.getCookies();
-            for (Cookie cookie : cookies) {
-                switch (cookie.getName()) {
-                    case "uname":
-                        username = cookie.getValue();
-                        break;
-                    case "uscore":
-                        score = Integer.parseInt(cookie.getValue());
-                        break;
+            if (cookies != null) {
+                for (Cookie cookie : cookies) {
+                    switch (cookie.getName()) {
+                        case "uname":
+                            username = cookie.getValue();
+                            break;
+                        case "uscore":
+                            score = Integer.parseInt(cookie.getValue());
+                            break;
+                        case "uhscore":
+                            highestScore = Integer.parseInt(cookie.getValue());
+                            break;
+                    }
                 }
             }
         }
@@ -119,19 +123,23 @@ public class RandomNumGuessSrv extends HttpServlet {
 
             if (username.equals("")) {
                 out.println("<label for=\"uname\">Username:</label>");
-                out.println("<input value=\"username\"  required=\"true\" type=\"text\" id=\"uname\" name=\"uname\"><br><br>");
+                out.println("<input required=\"true\" type=\"text\" id=\"uname\" name=\"uname\"><br><br>");
             } else {
-                out.println("<label> Hello " + username + " Your score is: " + score + "</label><br><br>");
+                out.println("<label> Hello " + username + " your highest score is: [" + highestScore + "]<br><br>");
             }
 
             out.println("<label for=\"unum\">Number guessed:</label>");
             out.println("<input required=\"true\" type=\"text\" id=\"unum\" name=\"unum\"><br><br>");
             out.println("<button class=\"btn btn-primary\" type=\"submit\">GUESS</button>");
             out.println("</form>");
-
             switch (request.getMethod()) {
                 case "DELETE":
-                    out.println("<h1>Game has been forcefully restarted.</h1>");
+                    out.println("<h1>Game has been forcefully restarted. "
+                            + "All cookies have been deleted.</h1>");
+                    out.println("<h1>Secret number was " + secretNumber + "</h1>");
+                    break;
+                case "PUT":
+                    out.println("<h1>Game has been forcefully restarted.");
                     out.println("<h1>Secret number was " + secretNumber + "</h1>");
                     break;
                 case "POST":
@@ -140,7 +148,6 @@ public class RandomNumGuessSrv extends HttpServlet {
                 default:
                     break;
             }
-
             out.println("<hr class=\"hr\" /><h5 class=\"text-center\">Number of "
                     + "guesses " + numGuesses + " of 3 </h5><hr class=\"hr\" />");
             out.println("</div></div>");
@@ -180,11 +187,22 @@ public class RandomNumGuessSrv extends HttpServlet {
             writer.println("Restarting the game.");
             score += 1;
             response.addCookie(new Cookie("uscore", Integer.toString(score)));
+            if (score > highestScore) {
+                response.addCookie(new Cookie("uhscore", Integer.toString(score)));
+            }
+            writer.println("<h4>Current score is:"
+                    + " [" + score + "] </h4></label><br><br>");
             init();
         } else if (numGuessed < secretNumber) {
             writer.println("Your guess " + numGuessed + " is too low. Try again.");
+            writer.println("<h4>Current score is:"
+                    + " [" + score + "] </h4></label><br><br>");
+
         } else {
             writer.println("Your guess  " + numGuessed + " is too high. Try again.");
+            writer.println("<h4>Current score is:"
+                    + " [" + score + "] </h4></label><br><br>");
+
         }
     }
 
@@ -219,8 +237,8 @@ public class RandomNumGuessSrv extends HttpServlet {
     }
 
     /**
-     * Handles the HTTP <code>PUT</code> method. Handle the updated input from
-     * user.
+     * Handles the HTTP <code>PUT</code> method. Restart the game while leaving
+     * cookies.
      *
      * @param request servlet request
      * @param response servlet response
@@ -231,11 +249,12 @@ public class RandomNumGuessSrv extends HttpServlet {
     protected void doPut(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        init();
     }
 
     /**
      * Handles the HTTP <code>DELETE</code> method. Clear cookies and restart
-     * the game to the original state.
+     * the game to the original state. Remove all cookies.
      *
      * @param request servlet request
      * @param response servlet response
@@ -245,8 +264,19 @@ public class RandomNumGuessSrv extends HttpServlet {
     @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
         init();
+        Cookie cookie = new Cookie("uname", "");
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
+        
+        cookie = new Cookie("uscore", "");
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
+        
+        cookie = new Cookie("uhscore", "");
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
     }
 
     /**
@@ -256,6 +286,6 @@ public class RandomNumGuessSrv extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "Short description";
+        return "Random number guessing game using Cookies for saving session info.";
     }
 }
