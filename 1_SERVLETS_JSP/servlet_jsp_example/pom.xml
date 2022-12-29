@@ -15,15 +15,6 @@
         <jakartaee>9.1.0</jakartaee>
     </properties>
     
-    <dependencies>
-        <dependency>
-            <groupId>jakarta.platform</groupId>
-            <artifactId>jakarta.jakartaee-api</artifactId>
-            <version>${jakartaee}</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
-    
     <build>
         <plugins>
             <plugin>
@@ -68,4 +59,12 @@
             </plugin>
         </plugins>
     </build>
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
+            <version>9.1.0</version>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
 </project>

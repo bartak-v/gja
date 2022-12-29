@@ -13,4 +13,11 @@ A Java examples project for GJA class at BUT FIT
  - Run Glassfish (either manually or through Netbeans) 
  - Deploy the compiled .war file onto the Glassfish server (defaultly through [http://localhost:4848](http://localhost:4848))
  - - You can also build the project yourself through standard practice in Netbeans (or manually using maven.)
- - You can test the Example Servlet via program like [Postman]() (manipulating raw HTTP requests sent to http://localhost:8080/servlet_jsp_example/ExampleServlet)
+
+#### Servlet Example
+ - The Servlet example is a Random Number Guessing game. The class implements all HTTP requests and utilizes Cookies.
+ - You can test the Example Servlet via program like [Postman](https://www.postman.com/) (manipulating raw HTTP requests sent to http://localhost:8080/servlet_jsp_example/ExampleServlet)
+ or through a web browser at the same addres.
+ - You can test all standard HTTP requests on the 
+
+#### JSP Example
