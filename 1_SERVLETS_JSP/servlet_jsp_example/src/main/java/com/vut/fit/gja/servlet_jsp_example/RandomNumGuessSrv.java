@@ -3,8 +3,6 @@ package com.vut.fit.gja.servlet_jsp_example;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import jakarta.servlet.ServletConfig;
-import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
@@ -197,7 +195,6 @@ public class RandomNumGuessSrv extends HttpServlet {
             writer.println("Your guess " + numGuessed + " is too low. Try again.");
             writer.println("<h4>Current score is:"
                     + " [" + score + "] </h4></label><br><br>");
-
         } else {
             writer.println("Your guess  " + numGuessed + " is too high. Try again.");
             writer.println("<h4>Current score is:"
@@ -269,11 +266,11 @@ public class RandomNumGuessSrv extends HttpServlet {
         Cookie cookie = new Cookie("uname", "");
         cookie.setMaxAge(0);
         response.addCookie(cookie);
-        
+
         cookie = new Cookie("uscore", "");
         cookie.setMaxAge(0);
         response.addCookie(cookie);
-        
+
         cookie = new Cookie("uhscore", "");
         cookie.setMaxAge(0);
         response.addCookie(cookie);
