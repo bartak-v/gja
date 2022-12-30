@@ -28,7 +28,30 @@ public class RandomNumGuessSrv extends HttpServlet {
     private Random random; // Instance of the Random class    
     private String username; // User's score and name
 
+    // HTML header and footer.
+    private static final String HTML_HEADER = "<!DOCTYPE html>\n"
+            + "<html lang=\"en\">\n"
+            + "\n"
+            + "<head>\n"
+            + "    <meta charset=\"UTF-8\">\n"
+            + "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
+            + "    <title>Document</title>\n"
+            + "    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css\" rel=\"stylesheet\"\n"
+            + "        integrity=\"sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD\" crossorigin=\"anonymous\">\n"
+            + "</head>\n"
+            + "\n"
+            + "<body>";
+
+    private static final String HTML_FOOTER = "    <div class=\"card opacity-75 w-50 py-4 mx-auto my-5 text-center\">\n"
+            + "        To test PUT and DELETE HTTP requests, use cURL or some API testing program such as Postman.\n"
+            + "        <pre><code>$ curl -X PUT http://localhost:8080/servlet_jsp_example/ExampleServlet    # restart the game\n"
+            + "      $ curl -X DELETE http://localhost:8080/servlet_jsp_example/ExampleServlet # ... and delete cookies</code></pre>\n"
+            + "    </div>\n"
+            + "</body>\n"
+            + "</html>";
+
     /**
+     *
      * Default no-arg constructor.
      */
     public RandomNumGuessSrv() {
@@ -47,10 +70,10 @@ public class RandomNumGuessSrv extends HttpServlet {
         random = new Random();
         secretNumber = random.nextInt(10) + 1;
         // Keep track of the number of guesses the user has made
-        numGuesses = 0;
+        numGuesses = 1;
         numGuessed = 100;
         username = "";
-        score = 0;
+        score = 0; // Number of correctly guessed numbers without failing
         highestScore = 0;
     }
 
@@ -75,6 +98,9 @@ public class RandomNumGuessSrv extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        /* Check if user sent his name through form, if not check if he has
+         * it saved in a cookie and use it. 
+         */
         String uname = request.getParameter("uname");
         if (uname != null && !uname.isEmpty()) {
             response.addCookie(new Cookie("uname", uname));
@@ -98,38 +124,36 @@ public class RandomNumGuessSrv extends HttpServlet {
             }
         }
 
+        // Print the webpage dynamically based on the state of the game.
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<link href="
-                    + "\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.2"
-                    + "/dist/css/bootstrap.min.css\" rel=\"stylesheet\" "
-                    + "integrity=\"sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQ"
-                    + "TwFspd3yD65VohhpuuCOmLASjC\" crossorigin=\"anonymous\">");
-            out.println("<title>Random Number Guesser</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<div class=\"d-flex flex-column justify-content-center\">");
-
-            out.println("<div class=\"card font-weight-bold p-2 mx-auto w-50\"><h1>Random Number Guesser Game</h1>");
-            out.println("<h5>Guess random number from 1 to 10, you win if you guess it correctly "
-                    + "in 3 tries.</h5>");
-
-            out.println("<form action=\"/servlet_jsp_example/ExampleServlet\" method=\"POST\">");
+            out.println(HTML_HEADER);
+            out.println("<div class=\"card w-50 mx-auto my-5 text-center\">\n"
+                    + "        <div class=\"card-header text-info\">\n"
+                    + "            GJA - Jakarta EE 10 Servlet Example\n"
+                    + "        </div>\n"
+                    + "        <div class=\"card-body\">\n"
+                    + "            <h4 class=\"card-title\"><strong>Random Number Guesser Game</strong></h4>\n"
+                    + "            <p class=\"card-text\">Guess random number from 1 to 10, you win if you guess it correctly in 3 tries.</p>\n"
+                    + "            <form action=\"/servlet_jsp_example/ExampleServlet\" method=\"POST\">");
 
             if (username.equals("")) {
-                out.println("<label for=\"uname\">Username:</label>");
-                out.println("<input required=\"true\" type=\"text\" id=\"uname\" name=\"uname\"><br><br>");
-            } else {
-                out.println("<label> Hello " + username + " your highest score is: [" + highestScore + "]<br><br>");
-            }
+                out.println("<input placeholder=\"Username\" required=\"true\" type=\"text\" id=\"uname\" name=\"uname\">");
 
-            out.println("<label for=\"unum\">Number guessed:</label>");
-            out.println("<input required=\"true\" type=\"text\" id=\"unum\" name=\"unum\"><br><br>");
-            out.println("<button class=\"btn btn-primary\" type=\"submit\">GUESS</button>");
+            } else {
+                out.println("<input placeholder=\"" + username + "\" disabled required=\"true\" type=\"text\" id=\"uname\" name=\"uname\">");
+            }
+            out.println("<input placeholder=\"Guessed Number\" required=\"true\" type=\"text\" id=\"unum\" name=\"unum\"><br><br>");
+            out.println("<button  type=\"submit\" class=\"btn btn-primary\">Guess</button>");
             out.println("</form>");
+
+            out.println("            <div class=\"d-flex mx-auto w-50 my-3 flex-row justify-content-center\">\n"
+                    + "                <div class=\"p-2 mx-1 flex-fill rounded border border-secondary\">User: " + username + " </div>\n"
+                    + "                <div class=\"p-2 mx-1 flex-fill rounded border border-secondary\">Score: " + score + "</div>\n"
+                    + "                <div class=\"p-2 mx-1 flex-fill rounded border border-secondary\">Record: " + highestScore + "</div>\n"
+                    + "            </div> ");
+
+            // Print different outputs for each HTTP request.
             switch (request.getMethod()) {
                 case "DELETE":
                     out.println("<h1>Game has been forcefully restarted. "
@@ -146,16 +170,17 @@ public class RandomNumGuessSrv extends HttpServlet {
                 default:
                     break;
             }
-            out.println("<hr class=\"hr\" /><h5 class=\"text-center\">Number of "
-                    + "guesses " + numGuesses + " of 3 </h5><hr class=\"hr\" />");
-            out.println("</div></div>");
-            out.println("</body>");
-            out.println("</html>");
+            // Print the HTML footer. 
+            out.println("<div class=\"card-footer text-muted \">\n"
+                    + "            Number of guesses <div class=\"text-danger\">" + numGuesses + " of 3</div>\n"
+                    + "        </div>\n"
+                    + "    </div>\n");
+            out.println(HTML_FOOTER);
         }
     }
 
     /**
-     * Handles the game logic.
+     * Handle the game logic.
      *
      * @param request servlet request
      * @param response servlet response
@@ -164,43 +189,44 @@ public class RandomNumGuessSrv extends HttpServlet {
      */
     protected void runGame(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // Parse the HTTP request and get the user number parameter from form.
         numGuessed = Integer.parseInt(request.getParameter("unum"));
         PrintWriter writer = response.getWriter();
         // Increment the number of guesses
         numGuesses++;
-
+        
+        // If user guessed more than 3 times, stop the game and restart it.
         if (numGuesses > 3) {
-            writer.println("You ran out of guesses. The game "
-                    + "has been restarted.");
+            writer.println("<div class=\"rounded m-3 p-3 border text-danger\"> You ran out of guesses, game restarted.</div>");
+            writer.println("</div>");
             init();
-            // Restart the score.
+            // Restart the score - save the 0 to the user's Cookie that holds score.
             response.addCookie(new Cookie("uscore", Integer.toString(score)));
             return;
         }
 
-        // Check if the guess is correct
+        // Check if the guess is correct - if not give a hint to the user.
         if (numGuessed == secretNumber) {
-            writer.println("Congratulations! You guessed "
-                    + "the secret number " + secretNumber + " in " + numGuesses + " guesses.");
-            writer.println("Restarting the game.");
-            score += 1;
+            writer.println("<div class=\"rounded m-3 p-3 border text-success\">Congratulations! You guessed "
+                    + "the secret number " + secretNumber + " in " + numGuesses + " guesses.\nRestarting the game. </div>");
+            score += 1; // Increase the score and save it to user's Cookie.
             response.addCookie(new Cookie("uscore", Integer.toString(score)));
+            // If user's personal record has been passed, save it.
             if (score > highestScore) {
                 response.addCookie(new Cookie("uhscore", Integer.toString(score)));
             }
-            writer.println("<h4>Current score is:"
-                    + " [" + score + "] </h4></label><br><br>");
-            init();
+            init(); // Restart the game.
         } else if (numGuessed < secretNumber) {
-            writer.println("Your guess " + numGuessed + " is too low. Try again.");
-            writer.println("<h4>Current score is:"
-                    + " [" + score + "] </h4></label><br><br>");
+            writer.println("<div class=\"rounded m-3 p-3 border text-warning\">"
+                    + "Your guess " + numGuessed + " is too low. Try again."
+                    + "</div>");
         } else {
-            writer.println("Your guess  " + numGuessed + " is too high. Try again.");
-            writer.println("<h4>Current score is:"
-                    + " [" + score + "] </h4></label><br><br>");
+            writer.println("<div class=\"rounded m-3 p-3 border text-warning\">"
+                    + "Your guess  " + numGuessed + " is too high. Try again."
+                    + "</div>");
 
         }
+        writer.println("</div>");
     }
 
     /**
@@ -261,7 +287,7 @@ public class RandomNumGuessSrv extends HttpServlet {
     @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
+        // Restart the game and delete all cookies - progress. 
         init();
         Cookie cookie = new Cookie("uname", "");
         cookie.setMaxAge(0);

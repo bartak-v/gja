@@ -16,8 +16,10 @@ A Java examples project for GJA class at BUT FIT
 
 #### Servlet Example
  - The Servlet example is a Random Number Guessing game. The class implements HTTP requests and utilizes Cookies for primitive session keeping.
- - You can test the Example Servlet via  a web browser or "API-testing" program like [Postman](https://www.postman.com/) or CURL (manipulating raw HTTP requests sent to http://localhost:8080/servlet_jsp_example/ExampleServlet) - You need to use something like Postman to test DELETE and PUT methods - as they can't be called from HTML page.
+ - You can test the Example Servlet via  a web browser or "API-testing" program like [Postman](https://www.postman.com/) or cURL (manipulating raw HTTP requests sent to http://localhost:8080/servlet_jsp_example/ExampleServlet) - You need to use something like Postman to test DELETE and PUT methods - as they can't be called from HTML page.
  - You can test GET, POST, PUT, DELETE  HTTP requests on the Servlet. 
- - By calling PUT manually you restart the game. By calling DELETE you delete the Cookies and Restart the Game (delete your username, high score etc.) 
+ - By calling PUT manually you restart the game. By calling DELETE you delete the Cookies and Restart the Game (deletes your username, high score etc.) 
+ - This example, while showing basic capabilities of Servlets is also a deterrent example of why it is better to use something like JSP for HTML rendering.
 
 #### JSP Example
+ - Is the same Random Guessing game - but it uses the capabilities of JSP and is done "correctly" - as an opposite to the Servlet solution.
