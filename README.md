@@ -22,4 +22,3 @@ A Java examples project for GJA class at BUT FIT
  - This example, while showing basic capabilities of Servlets is also a deterrent example of why it is better to use something like JSP for HTML rendering.
 
 #### JSP Example
- - Is the same Random Guessing game - but it uses the capabilities of JSP and is done "correctly" - as an opposite to the Servlet solution.
