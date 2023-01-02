@@ -28,16 +28,17 @@ import jakarta.servlet.annotation.WebServlet;
  *
  * @author xbarta47
  */
-// This annotation specifies that this servlet will handle file uploads and
-// limits of these files.
+/**
+ * This annotation specifies that this servlet will handle file uploads and
+ * limits of these files. 1 MB - the file will be stored onto the disk if it is
+ * bigger than this. 2 MB - maximal one file size and 10 MB - max for all files
+ * uploaded in one request.
+ */
 @MultipartConfig(
-        // 0,5 MB the file will be stored onto the disk if it is bigger than this.
-        fileSizeThreshold = (1024 * 1024) / 2,
-        // 2 MB
+        fileSizeThreshold = 1024 * 1024,
         maxFileSize = 2 * 1024 * 1024,
-        // 10 MB max for all files uploaded in one request.
-        maxRequestSize = 100 * 1024 * 1024)
-@WebServlet(name = "FileUpload", urlPatterns = {"/FileUpload"})
+        maxRequestSize = 10 * 1024 * 1024)
+@WebServlet(name = "UploadServlet", urlPatterns = {"/UploadServlet"})
 public class UploadServlet extends HttpServlet {
 
     // Specify explicit serialVersionUID for correct serialization. 
