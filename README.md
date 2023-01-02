@@ -2,8 +2,6 @@
 
 A Java examples project for GJA class at BUT FIT
 
-# 1 - Servlets + JSP example programs
-
 ### Prerequisites
 
  The project was developed in [Apache Netbeans 16](https://netbeans.apache.org/download/index.html) with [Eclipse Temurin JDK 17](https://adoptium.net/temurin/releases/?version=17) and [Eclipse Glassfish 7](https://projects.eclipse.org/projects/ee4j.glassfish/releases/7.0.0) (Jakarta EE 10 API). Other prerequisite is that the user is already familiar with deploying Java Web Applications onto the server. If not, user can read
@@ -19,7 +17,7 @@ A Java examples project for GJA class at BUT FIT
 
 ### Deploying .war files to Glassfish (Linux but it should work on Windows too)
 
-- Download and install GlassFish 7 on your server. You can download it from the following link:
+- Download and install GlassFish 7 on your computer. You can download it from the following link:
     <https://glassfish.java.net/download.html>
 
 - Once GlassFish is installed, start the domain. You can start the domain by running the following command (in the glassfish folder -> glassfish/bin):
@@ -45,7 +43,7 @@ A Java examples project for GJA class at BUT FIT
 
 - The .war file will now be deployed to GlassFish and should be accessible at the specified context root. You can check the URLs we specify in the examples section.
 
-#### Servlet Examples
+### Servlet Examples
 
 ##### First example
 
@@ -58,6 +56,5 @@ A Java examples project for GJA class at BUT FIT
 ##### Second example
 
 - Second Servlet example is an updated File Upload servlet using the capabilities of Jakarta EE 10 (Servlet 3.0+).
-
 
 #### JSP Example
