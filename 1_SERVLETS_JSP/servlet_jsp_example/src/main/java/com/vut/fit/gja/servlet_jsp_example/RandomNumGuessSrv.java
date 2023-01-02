@@ -14,7 +14,8 @@ import java.util.Random;
  * An example of HTTP Servlet using Jakarta EE 10 API. This is an easy random
  * number guesser game, using Cookies for simple session management. The purpose
  * of this example is to showcase a servlet above "Hello World" that utilizes
- * simple session management through cookies.
+ * simple session management through cookies - and to showcase why it's not 
+ * always a good idea to use "simple" servlets for HTML rendering.
  *
  * @author xbarta47
  */
@@ -70,9 +71,9 @@ public class RandomNumGuessSrv extends HttpServlet {
         random = new Random();
         secretNumber = random.nextInt(10) + 1;
         // Keep track of the number of guesses the user has made
-        numGuesses = 1;
-        numGuessed = 100;
-        username = "";
+        numGuesses = 1; // Number of guesses in a game
+        numGuessed = 100; // Default guessed number.
+        username = ""; // Username of the player
         score = 0; // Number of correctly guessed numbers without failing
         highestScore = 0;
     }
@@ -136,17 +137,18 @@ public class RandomNumGuessSrv extends HttpServlet {
                     + "            <h4 class=\"card-title\"><strong>Random Number Guesser Game</strong></h4>\n"
                     + "            <p class=\"card-text\">Guess random number from 1 to 10, you win if you guess it correctly in 3 tries.</p>\n"
                     + "            <form action=\"/servlet_jsp_example/ExampleServlet\" method=\"POST\">");
-
+            
+            // Print input form. If user specified his name already, disable the input.
             if (username.equals("")) {
                 out.println("<input placeholder=\"Username\" required=\"true\" type=\"text\" id=\"uname\" name=\"uname\">");
-
             } else {
                 out.println("<input placeholder=\"" + username + "\" disabled required=\"true\" type=\"text\" id=\"uname\" name=\"uname\">");
             }
             out.println("<input placeholder=\"Guessed Number\" required=\"true\" type=\"text\" id=\"unum\" name=\"unum\"><br><br>");
             out.println("<button  type=\"submit\" class=\"btn btn-primary\">Guess</button>");
             out.println("</form>");
-
+            
+            // Print scoreboard
             out.println("            <div class=\"d-flex mx-auto w-50 my-3 flex-row justify-content-center\">\n"
                     + "                <div class=\"p-2 mx-1 flex-fill rounded border border-secondary\">User: " + username + " </div>\n"
                     + "                <div class=\"p-2 mx-1 flex-fill rounded border border-secondary\">Score: " + score + "</div>\n"
@@ -200,7 +202,7 @@ public class RandomNumGuessSrv extends HttpServlet {
             writer.println("<div class=\"rounded m-3 p-3 border text-danger\"> You ran out of guesses, game restarted.</div>");
             writer.println("</div>");
             init();
-            // Restart the score - save the 0 to the user's Cookie that holds score.
+            // Restart the score and save the 0 to the user's Cookie that holds score.
             response.addCookie(new Cookie("uscore", Integer.toString(score)));
             return;
         }
