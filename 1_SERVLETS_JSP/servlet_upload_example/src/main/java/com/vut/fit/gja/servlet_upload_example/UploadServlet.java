@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.File;
 import java.io.PrintWriter;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.FileInputStream;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -15,6 +18,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.annotation.WebServlet;
 
 /**
@@ -93,7 +97,8 @@ public class UploadServlet extends HttpServlet {
     }
 
     /**
-     * Handles the HTTP <code>GET</code> method.
+     * Handles the HTTP <code>GET</code> method. An ugly way to display uploaded
+     * image in a servlet from local disk.
      *
      * @param request servlet request
      * @param response servlet response
@@ -104,10 +109,23 @@ public class UploadServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            out.println(HTML_HEADER);
-            out.println("<h4 class=\"card-title\"><strong>File Upload Servlet</strong></h4>\n");
-            out.println(HTML_FOOTER);
+        try (ServletOutputStream out = response.getOutputStream()) {
+            response.setContentType("image/jpeg");
+
+            String imageName = request.getParameter("imname");
+            BufferedInputStream bufIn;
+            BufferedOutputStream bufOut;
+            try (FileInputStream fileInput = new FileInputStream(UPLOAD_DIRECTORY + imageName)) {
+                bufIn = new BufferedInputStream(fileInput);
+                bufOut = new BufferedOutputStream(out);
+                int b = 0;
+                while ((b = bufIn.read()) != -1) {
+                    bufOut.write(b);
+                }
+                fileInput.close();
+                bufIn.close();
+                bufOut.close();
+            }
         }
     }
 
@@ -133,8 +151,11 @@ public class UploadServlet extends HttpServlet {
                 out.println(HTML_FOOTER);
                 return;
             }
-            // Get the uploaded filename
-            String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+            // Get the uploaded filename, remove nonASCII and whitespaces
+            String fileName = Paths.get(filePart.getSubmittedFileName())
+                    .getFileName().toString().replaceAll("\\s", "")
+                    .replaceAll("[^\\x00-\\x7F]", "");
+            ;
 
             // Validate the file's extension
             if (!fileName.endsWith(".jpg") && !fileName.endsWith(".jpeg") && !fileName.endsWith(".png")) {
@@ -150,9 +171,12 @@ public class UploadServlet extends HttpServlet {
                 out.println(HTML_FOOTER);
             }
 
-            // Print the HTML page
-            out.println("            <h4 class=\"card-title\"><strong>File " + fileName + " uploaded.</strong></h4>\n"
-                    + "            <div class=\"rounded m-3 p-3 border text-danger\"> Your guess 7 is too low. Try again.</div>\n");
+            // Print the HTML page and the image already uploaded.
+            out.println("<h4 class=\"card-title\"><strong>File " + fileName + " uploaded.</strong></h4>\n"
+                    + "<form id=\"image_name\" method=\"GET\" action=\"" + request.getRequestURI() + "\">\n"
+                    + "  <input type=\"hidden\" id=\"imname\" name=\"imname\" value=\"" + fileName + "\"> "
+                    + "   <button type=\"submit\" class=\"btn btn-primary m-2\">Show " + fileName + "</button>\n"
+                    + "</form>");
             out.println(HTML_FOOTER);
         }
     }

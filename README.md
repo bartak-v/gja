@@ -43,18 +43,20 @@ A Java examples project for GJA class at BUT FIT
 
 - The .war file will now be deployed to GlassFish and should be accessible at the specified context root. You can check the URLs we specify in the examples section.
 
-### Servlet Examples
+#### Servlet Examples
 
-##### First example (/servlet_jsp_example)
+##### First example (/servlet_example)
 
 - The Servlet example is a Random Number Guessing game. The class implements HTTP requests and utilizes Cookies for primitive session keeping.
-- You can test the Example Servlet via  a web browser or "API-testing" program like [Postman](https://www.postman.com/) or cURL (manipulating raw HTTP requests sent to e.g.<http://localhost:8080/servlet_jsp_example/ExampleServlet>) - You need to use something like Postman to test DELETE and PUT methods - as they can't be called from HTML page.
+- You can test the Example Servlet via  a web browser or "API-testing" program like [Postman](https://www.postman.com/) or cURL (manipulating raw HTTP requests sent to e.g.<http://localhost:8080/servlet_example/ExampleServlet>) - You need to use something like Postman to test DELETE and PUT methods - as they can't be called from HTML page.
 - You can test GET, POST, PUT, DELETE  HTTP requests on the Servlet.
 - By calling PUT manually you restart the game. By calling DELETE you delete the Cookies and Restart the Game (deletes your username, high score etc.) - this will be only available through cURL and/or Postman as they have different sessions than your browser.
 - This example, showing basic capabilities of Servlets is also a deterrent example of why it is better to use something like JSP for HTML rendering.
 
-##### Second example (servlet_upload_example)
+##### Second example (/servlet_upload_example)
 
-- Second Servlet example is an updated File Upload servlet using the capabilities of Jakarta EE 10 (Servlet 3.0+).
+- Second Servlet example is an updated File Upload servlet using the capabilities of Jakarta EE 10 (Servlet 3.0+ in-house fileupload).
+- You can deploy it the same way you did the first example (or any other .war as has been specified before).
+- After deploying, you can should find it at <http://localhost:8080/servlet_upload_example/> or through Applications -> Launch in Glassfish Admin GUI.
 
 ### JSP Example
