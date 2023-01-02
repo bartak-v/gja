@@ -4,8 +4,8 @@ A Java examples project for GJA class at BUT FIT
 
 ### Prerequisites
 
- The project was developed in [Apache Netbeans 16](https://netbeans.apache.org/download/index.html) with [Eclipse Temurin JDK 17](https://adoptium.net/temurin/releases/?version=17) and [Eclipse Glassfish 7](https://projects.eclipse.org/projects/ee4j.glassfish/releases/7.0.0) (Jakarta EE 10 API). Other prerequisite is that the user is already familiar with deploying Java Web Applications onto the server. If not, user can read
- the documentation of the provided tools - as that is out of scope of this project.
+ The project was developed in [Apache Netbeans 16](https://netbeans.apache.org/download/index.html) with [Eclipse Temurin JDK 17](https://adoptium.net/temurin/releases/?version=17) and [Eclipse Glassfish 7](https://projects.eclipse.org/projects/ee4j.glassfish/releases/7.0.0) (Jakarta EE 10 API). Other prerequisite is that the user is somehow familiar with deploying Java Web Applications onto the server. If not, user can read
+ the provided documentation.
 
 ### Installation and run
 

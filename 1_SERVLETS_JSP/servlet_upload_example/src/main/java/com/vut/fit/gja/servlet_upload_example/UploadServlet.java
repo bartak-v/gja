@@ -153,7 +153,6 @@ public class UploadServlet extends HttpServlet {
             String fileName = Paths.get(filePart.getSubmittedFileName())
                     .getFileName().toString().replaceAll("\\s", "")
                     .replaceAll("[^\\x00-\\x7F]", "");
-            ;
 
             // Validate the file's extension
             if (!fileName.endsWith(".jpg") && !fileName.endsWith(".jpeg") && !fileName.endsWith(".png")) {
