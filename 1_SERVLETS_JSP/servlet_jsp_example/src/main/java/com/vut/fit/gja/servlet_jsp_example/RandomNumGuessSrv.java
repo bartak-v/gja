@@ -36,7 +36,7 @@ public class RandomNumGuessSrv extends HttpServlet {
             + "<head>\n"
             + "    <meta charset=\"UTF-8\">\n"
             + "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
-            + "    <title>Document</title>\n"
+            + "    <title>Random Number Guesser</title>\n"
             + "    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css\" rel=\"stylesheet\"\n"
             + "        integrity=\"sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD\" crossorigin=\"anonymous\">\n"
             + "</head>\n"
