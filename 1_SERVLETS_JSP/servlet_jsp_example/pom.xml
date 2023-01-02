@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.vut.fit.gja</groupId>
-    <artifactId>servlet_jsp_example</artifactId>
+    <artifactId>servlet_example</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
-    <name>servlet_jsp_example-1.0</name>
+    <name>servlet_example-1.0</name>
     
     <properties>
         <maven.compiler.release>11</maven.compiler.release>
