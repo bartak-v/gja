@@ -43,7 +43,7 @@ public class RandomNumGuessSrv extends HttpServlet {
             + "\n"
             + "<body>";
 
-    private static final String HTML_FOOTER = "    <div class=\"card opacity-75 w-50 py-4 mx-auto my-5 text-center\">\n"
+    private static final String HTML_FOOTER = "</div><div class=\"card opacity-75 w-50 py-4 mx-auto my-5 text-center\">\n"
             + "        To test PUT and DELETE HTTP requests, use cURL or some API testing program such as Postman.\n"
             + "        <pre><code>$ curl -X PUT http://localhost:8080/servlet_jsp_example/ExampleServlet    # restart the game\n"
             + "      $ curl -X DELETE http://localhost:8080/servlet_jsp_example/ExampleServlet # ... and delete cookies</code></pre>\n"

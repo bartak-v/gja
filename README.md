@@ -57,6 +57,6 @@ A Java examples project for GJA class at BUT FIT
 
 - Second Servlet example is an updated File Upload servlet using the capabilities of Jakarta EE 10 (Servlet 3.0+ in-house fileupload).
 - You can deploy it the same way you did the first example (or any other .war as has been specified before).
-- After deploying, you can should find it at <http://localhost:8080/servlet_upload_example/> or through Applications -> Launch in Glassfish Admin GUI.
+- After deploying, you should find it at <http://localhost:8080/servlet_upload_example/> or through Applications -> Launch in Glassfish Admin GUI.
 
 ### JSP Example
