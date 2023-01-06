@@ -34,7 +34,7 @@ Open the `index.html` in each documentation to see the Javadoc.
 
 - Once `GlassFish` is installed, start the `domain`. You can start the `domain` by running the following command (in the `GlassFish` installation folder go to `GlassFish/bin/`) and run:
     `./asadmin start-domain` - for this to work you have to have correctly set the `JAVA_HOME` environment variable to where you have your JDK installed.
-    We recommend using [Eclipse Temurin JDK 17.0.5+8](https://adoptium.net/temurin/releases/?version=17). `JAVA_HOME` should be set to `...example_jdk_path/bin`
+    We recommend using [Eclipse Temurin JDK 17.0.5+8](https://adoptium.net/temurin/releases/?version=17). `JAVA_HOME` should be set to `...example_jdk_path/bin`. Environment variable setup is out of scope of this project and we recommend `Google` if you have trouble with this (if it does not setup automatically when installing etc.).
 
 - Next, open a web browser and navigate to the `GlassFish Administration Console` at the following URL:
     <http://localhost:4848/>
