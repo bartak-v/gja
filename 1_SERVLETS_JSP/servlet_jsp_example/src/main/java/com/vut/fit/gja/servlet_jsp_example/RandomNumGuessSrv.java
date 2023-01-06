@@ -191,7 +191,7 @@ public class RandomNumGuessSrv extends HttpServlet {
      */
     protected void runGame(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Parse the HTTP request and get the user number parameter from form.
+        // Parse the HTTP request and get the user guessed number parameter from form.
         numGuessed = Integer.parseInt(request.getParameter("unum"));
         PrintWriter writer = response.getWriter();
         // Increment the number of guesses

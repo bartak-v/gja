@@ -23,17 +23,17 @@ import jakarta.servlet.annotation.WebServlet;
 
 /**
  * An example of HTTP Servlet using Jakarta EE 10 API. This is current example
- * for a FileUpload using Servlet 3.0+. It also showcases custom ServletError
- * error handling.
+ * for a FileUpload using Servlet 3.0+.
  *
  * @author xbarta47
  *
  * <p>
- * This annotation (MultipartConfig) specifies that this servlet will handle
+ * The annotation (MultipartConfig) specifies that this servlet will handle
  * file uploads and limits of these files. 1 MB - the file will be stored onto
  * the disk if it is bigger than this. 2 MB - maximal one file size and 10 MB -
  * max for all files uploaded in one request. maxFileSize does not work properly
- * so it's handled manually.
+ * so it's handled manually (it throws an exception correctly, but does not
+ * display it correctly in the web browser).
  */
 @MultipartConfig(
         fileSizeThreshold = 1024 * 1024,
@@ -103,7 +103,7 @@ public class UploadServlet extends HttpServlet {
 
     /**
      * Handles the HTTP <code>GET</code> method. A simple way to display an
-     * uploaded image in a servlet from local disk.
+     * uploaded image in a servlet from local disk to the web browser.
      *
      * @param request servlet request
      * @param response servlet response
@@ -116,15 +116,31 @@ public class UploadServlet extends HttpServlet {
         try (ServletOutputStream out = response.getOutputStream()) {
             response.setContentType("image/jpeg");
             String imageName = request.getParameter("imname");
+            // Only allow images to be loaded from the disk
+            if (validateFileExtension(imageName)) {
+                response.setContentType("text/html;charset=UTF-8");
+                out.println(HTML_HEADER);
+                out.println("<h1>Invalid file type - .jpg, .jpeg, and .png "
+                        + "are allowed to be shown.</h1>");
+                out.println(HTML_FOOTER);
+                return;
+            }
+            // Input buffer of the loaded image from disk
             BufferedInputStream bufIn;
+            // Output buffer (the web browser)
             BufferedOutputStream bufOut;
-            try (FileInputStream fileInput = new FileInputStream(UPLOAD_DIRECTORY + imageName)) {
+            // Try to load the file from the disk 
+            try (FileInputStream fileInput
+                    = new FileInputStream(UPLOAD_DIRECTORY + imageName)) {
+                // Populate the buffers
                 bufIn = new BufferedInputStream(fileInput);
                 bufOut = new BufferedOutputStream(out);
-                int b = 0;
+                // Read and write the image through the buffers
+                int b;
                 while ((b = bufIn.read()) != -1) {
                     bufOut.write(b);
                 }
+                // Close all files / buffers
                 fileInput.close();
                 bufIn.close();
                 bufOut.close();
@@ -133,7 +149,12 @@ public class UploadServlet extends HttpServlet {
     }
 
     /**
-     * Handles the HTTP <code>POST</code> method.
+     * Handles the HTTP <code>POST</code> method.<p>
+     * This method handles multiple file upload with Servlet 3.0+ capabilities
+     * (using the Jakarta Part class). Validate the uploaded files and print an
+     * HTML page that lists links so the uploaded files can be shown in the
+     * browser. Only images are allowed to be uploaded (with basic extension
+     * checking).
      *
      * @param request servlet request
      * @param response servlet response
@@ -144,6 +165,7 @@ public class UploadServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+
         try (PrintWriter out = response.getWriter()) {
             // Print the HTML header
             out.println(HTML_HEADER);
@@ -152,31 +174,33 @@ public class UploadServlet extends HttpServlet {
             out.println("<ul class=\"list-group\">\n");
             // Process multifile upload
             for (Part filePart : request.getParts()) {
-
                 // Check if a file was actually uploaded
                 if (filePart == null || filePart.getSubmittedFileName().isEmpty()) {
                     out.println("<h1>No file uploaded.</h1>");
                     out.println(HTML_FOOTER);
-                    return; // TODO replace this with custom ErrorHandler
+                    return;
                 }
-                // Get the uploaded filename, remove nonASCII and whitespaces
-                // convert to lowercase so even things like .PNG gets recognized
+                /* Get the uploaded filename, replace non-ASCII and whitespaces
+                 * convert to lowercase so even things like .PNG gets recognized
+                 */
                 String fileName = Paths.get(filePart.getSubmittedFileName())
-                        .getFileName().toString().toLowerCase()
+                        .getFileName()
+                        .toString()
+                        .toLowerCase()
                         .replaceAll("\\s", "")
                         .replaceAll("[^\\x00-\\x7F]", "");
-                // Validate the file's size
+                // Validate the uploaded file size manually
                 long size = filePart.getSize();
                 if (size > MAX_FILE_SIZE) { // 2 MB
                     request.setAttribute("error", "File is too large (max size is 1 MB)");
                     out.println("<h1>File is too large max allowed "
-                            + "size is " + MAX_FILE_SIZE + ".</h1>");
+                            + "size is " + MAX_FILE_SIZE / 1000000 + " MB.</h1>");
                     out.println(HTML_FOOTER);
                     return;
                 }
 
-                // Validate the file's extension
-                if (!fileName.endsWith(".jpg") && !fileName.endsWith(".jpeg") && !fileName.endsWith(".png")) {
+                // Validate the uploaded file extension
+                if (validateFileExtension(fileName)) {
                     out.println("<h1>Invalid file type - .jpg, .jpeg, and .png are allowed.</h1>");
                     out.println(HTML_FOOTER);
                     return;
@@ -189,6 +213,9 @@ public class UploadServlet extends HttpServlet {
                     out.println(HTML_FOOTER);
                 }
 
+                /* Print the file as a part of HTML list and make a href/button
+                 * that will show it after being clicked
+                 */
                 out.println("<li class=\"list-group-item\">"
                         + "<form id=\"image_name\" method=\"GET\""
                         + "action=\"" + request.getRequestURI() + "\">"
@@ -201,9 +228,22 @@ public class UploadServlet extends HttpServlet {
                         + "</form>"
                         + "</li>");
             }
+            // Print the closing tag of the list and HTML footer
             out.println("</ul>");
             out.println(HTML_FOOTER);
         }
+    }
+
+    /**
+     * Validate the file extension of string to be image (.jpg .jpeg .png).
+     *
+     * @param fileName a string to be validated
+     * @return a Boolean result containing the result of checking the extension.
+     */
+    private Boolean validateFileExtension(String fileName) {
+        return !fileName.endsWith(".jpg")
+                && !fileName.endsWith(".jpeg")
+                && !fileName.endsWith(".png");
     }
 
     /**
