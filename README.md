@@ -1,7 +1,7 @@
 # gja
 
 A Java examples project for GJA class at BUT FIT.
-This is the global readme with all information and all examples. 
+This is the global readme with all information and all examples.
 This readme has been copied (and further specified for concrete examples) in each of the examples folders so they can be distributed separately.
 Also the .war files are included with each project for people that just want to try them out without installing the necessary development tools.
 
@@ -24,13 +24,15 @@ Automatically generated Javadoc documentation can be found in the `doc/` folder.
 
 ### Deploying .war files to Glassfish (Linux but it should work on Windows too)
 
-- The projects contain `.war` 
+- The projects contain `.war` files that should be ready for deployment follow the next steps to deploy.
 
-- Download and install GlassFish 7 on your computer. You can download it from the following link:
+- You can also build/compile the project yourself. Open the project folder in `Netbeans 16` and click `Run -> Clean and Build`. The resulting `.war` file should be in the target/ folder in the root of the project.
+
+- To correctly deploy the project, download and install GlassFish 7 on your computer. You can download it from the following link:
     <https://glassfish.java.net/download.html>
 
 - Once GlassFish is installed, start the domain. You can start the domain by running the following command (in the glassfish folder -> glassfish/bin):
-    `asadmin start-domain` - for this to work you have to have correctly set the JAVA_HOME environment variable to where you have your JDK installed.
+    `./asadmin start-domain` - for this to work you have to have correctly set the JAVA_HOME environment variable to where you have your JDK installed.
     We recommend using [Eclipse Temurin JDK 17.0.5+8](https://adoptium.net/temurin/releases/?version=17). JAVA_HOME should be set to ...example_jdk_path/bin
 
 - Next, open a web browser and navigate to the GlassFish Administration Console at the following URL:
@@ -67,10 +69,10 @@ Automatically generated Javadoc documentation can be found in the `doc/` folder.
 
 ##### Second example (/servlet_upload_example/)
 
+- For deployment see [Section on .war deployment](#deploying-war-files-to-glassfish-linux-but-it-should-work-on-windows-too).
 - Second Servlet example is an updated multiple File Upload servlet using the capabilities of Jakarta EE 10 (Servlet 3.0+ in-house fileupload).
 - It's capabilities are to upload multiple files and validate them in some ways (check that they are images, their size etc.).
 - You can also view the uploaded images through simple HTML page.
-- You can deploy it the same way you did the first example ([Section on .war deployment](#deploying-war-files-to-glassfish-linux-but-it-should-work-on-windows-too)).
 - After deploying, you should find it at <http://localhost:8080/servlet_upload_example/> or through Applications -> Launch in Glassfish Admin GUI.
 
 #### JSP Examples 2.0
