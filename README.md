@@ -70,4 +70,13 @@ Automatically generated Javadoc documentation can be found in the `doc/` folder.
 - You can deploy it the same way you did the first example (or any other .war as has been specified before).
 - After deploying, you should find it at <http://localhost:8080/servlet_upload_example/> or through Applications -> Launch in Glassfish Admin GUI.
 
-#### JSP Example
+#### JSP Examples 2.0
+TODO:README.pdf ONLY:
+- We refactored the current JSP examples, because they are pretty all-embracing already.
+- They have been refactored to run out of box with JDK 17 and Glassfish 7 and support deployment from Netbeans.
+- New unified Bootstrap UI has been created and the functionality of the project has been tested with Glassfish 7 and JDK 17.
+- Compiled .war is added to the root of the projects for easy deployment
+
+Dílčí readme:
+- This is a set of JSP examples that showcase various JSP scenarios.
+- You can deploy them as the other projects ([Section on .war deployment](#deploying-war-files-to-glassfish-linux-but-it-should-work-on-windows-too)).
