@@ -1,54 +1,40 @@
-<!doctype html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>JSP Examples</title>
-  </head>
-  <body bgcolor="#FFFFFF">
-    <b><font face="Arial, Helvetica, sans-serif"><font size=+2>JSP
-      Samples</font></font></b>
-    <p>This is a collection of samples demonstrates the usage of different
-      parts of the JavaServer Pages (JSP) specification.
-    <p>These examples will only work when these pages are being served by the
-      ServletRunner. They will not work if you are viewing these pages via a
-      "file://..." URL.
-    <p>To navigate your way through the examples, the following links will
-      help:
-      <br>&nbsp;
+<!DOCTYPE html>
+<html lang="en">
 
-    <p>Tip: For session scoped beans to work, the cookies must be enabled.
-      This can be done using browser options.
-      <br>&nbsp;
-    </p>
-    <table BORDER=0 CELLSPACING=5 WIDTH="85%" >
-      <tr VALIGN=TOP>
-        <td>Numberguess&nbsp;</td>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JSP Examples - Jakarta EE 10</title>
+        <link rel="icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Jakarta_ee_logo_schooner_color_stacked_default.svg/1280px-Jakarta_ee_logo_schooner_color_stacked_default.svg.png">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    </head>
 
-        <td VALIGN=TOP WIDTH="30%"><a href="number/NumberGuess.jsp">Execute</a></td>
-
-      </tr>
-
-      <tr VALIGN=TOP>
-        <td>Carts&nbsp;</td>
-
-        <td VALIGN=TOP WIDTH="30%"><a href="cart/Carts.html">Execute</a></td>
-
-      </tr>
-
-      <tr VALIGN=TOP>
-        <td>Calendar&nbsp;</td>
-
-        <td WIDTH="30%"><a href="calendar/login.html">Execute</a></td>
-
-      </tr>
-
-      <tr valign=TOP>
-        <td>Send mail example</td>
-        <td valign=TOP width="30%"><a href="mail/mail.jsp">Execute</a></td>
-
-      </tr>
-
-    </table>
-
-  </body>
+    <body>
+        <div class="card w-50 mx-auto my-5 text-center">
+            <div class="card-header text-info">
+                GJA - JSP Examples (JakartaEE 10)
+            </div>
+            <div class="card-body">
+                <h4 class="card-title"><strong>A JakartaEE 10 JSP Examples</strong></h4>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Jakarta_ee_logo_schooner_color_stacked_default.svg/1200px-Jakarta_ee_logo_schooner_color_stacked_default.svg.png
+                     " class="img-thumbnail w-25 h-25 my-2 img-fluid">
+                <p>This is collection of examples demonstrates the usage of different
+                    parts of the <strong><a href="https://jakarta.ee/specifications/pages/3.0/jakarta-server-pages-spec-3.0.html">Jakarta Server Pages (JSP) specification</a></strong>.
+                <p class="card-text lead">Select out of the following JSP examples:</p>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <a class="btn btn-primary" href="number/NumberGuess.jsp">Number Guesser</a>
+                    <a class="btn btn-primary" href="cart/Carts.html">Shopping Cart</a>
+                    <a class="btn btn-primary" href="calendar/login.html">Calendar Planner</a>
+                    <a class="btn btn-primary" href="mail/mail.jsp">E-Mail</a>
+                </div>
+            </div>
+            <div class="card-footer text-muted ">
+                Tip: For session scoped beans to work, the cookies must be enabled.
+                This can be done using browser options. These examples will only work when these pages are being served by the
+                ServletRunner. They will not work if you are viewing these pages via a
+                "file://..." URL (refer to documentation for proper deployment).
+            </div>
+        </div>
+    </body>
 </html>

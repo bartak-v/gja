@@ -1,6 +1,7 @@
 /*
  * Project: Examples for GJA course
  * Author: Ing. Jaroslav Dytrych idytrych@fit.vutbr.cz
+ * Refactored: Bc. Vít Barták xbarta47@stud.fit.vutbr.cz
  * File: NumberGuessBeaan.java
  * Description: Example backbean for number guess
  */
@@ -8,13 +9,13 @@
 /**
  * @file NumberGuessBeaan.java
  *
- * @brief Example backbean for number guess
+ * Example backbean for number guess
  */
 
 /**
  * @package cz.vutbr.fit.knot.gja.number
  * 
- * @brief Example backbean for number guess
+ * Example backbean for number guess
  */
 package cz.vutbr.fit.knot.gja.number;
 
@@ -23,8 +24,6 @@ import java.security.SecureRandom;
 
 /**
  * Example backbean for number guess
- * 
- * @brief Example backbean for number guess
  */
 public class NumberGuessBean {
 
@@ -75,7 +74,7 @@ public class NumberGuessBean {
   /**
    * Gets success indicator
    * 
-   * @return Returns value of success indicator
+   * @return Value of success indicator
    */
   public boolean getSuccess() {
     return success;
@@ -84,7 +83,7 @@ public class NumberGuessBean {
   /**
    * Gets hint
    * 
-   * @return Returns hint 
+   * @return Hint 
    */
   public String getHint() {
     return "" + hint;
@@ -93,7 +92,7 @@ public class NumberGuessBean {
   /**
    * Gets number of guesses
    * 
-   * @return Returns number of guesses
+   * @return Number of guesses
    */
   public int getNumGuesses() {
     return numGuesses;
