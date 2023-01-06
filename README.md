@@ -84,7 +84,7 @@ Open the `index.html` in each documentation to see the Javadoc.
 - After deployment, you should find the app running on <http://localhost:8080/JSPExamples/>
 - This is a set of `JSP` examples that showcase various `JSP` scenarios.
 - User can test simple `calendar`, shopping `cart`, `mail` and `number guesser game`.
-- We have updated and refactored the older GJA JSP examples, because they are all-embracing already.
+- Instead of creating new JSP examples, we have updated and refactored the older GJA JSP examples - because they are all-embracing already.
 - They have been refactored to run out of box with `JDK 17` and `GlassFish 7` and support deployment out of `Netbeans`.
 - The code has been refactored and reformated to use `HTML 5`, `Jakarta EE 10` and comments have been updated / expanded.
 - New unified `Bootstrap 5 UI` (similar to the new servlet examples) has been created and the functionality of the project has been tested with `GlassFish 7` and `JDK 17`.
