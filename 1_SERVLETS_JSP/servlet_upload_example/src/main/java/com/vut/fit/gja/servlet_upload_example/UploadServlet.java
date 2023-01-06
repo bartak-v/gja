@@ -27,16 +27,16 @@ import jakarta.servlet.annotation.WebServlet;
  * error handling.
  *
  * @author xbarta47
- */
-/**
- * This annotation specifies that this servlet will handle file uploads and
- * limits of these files. 1 MB - the file will be stored onto the disk if it is
- * bigger than this. 2 MB - maximal one file size and 10 MB - max for all files
- * uploaded in one request.
+ *
+ * <p>
+ * This annotation (MultipartConfig) specifies that this servlet will handle
+ * file uploads and limits of these files. 1 MB - the file will be stored onto
+ * the disk if it is bigger than this. 2 MB - maximal one file size and 10 MB -
+ * max for all files uploaded in one request. maxFileSize does not work properly
+ * so it's handled manually.
  */
 @MultipartConfig(
         fileSizeThreshold = 1024 * 1024,
-        maxFileSize = 2 * 1024 * 1024,
         maxRequestSize = 10 * 1024 * 1024)
 @WebServlet(name = "UploadServlet", urlPatterns = {"/UploadServlet"})
 public class UploadServlet extends HttpServlet {
@@ -44,9 +44,13 @@ public class UploadServlet extends HttpServlet {
     // Specify explicit serialVersionUID for correct serialization. 
     private static final long serialVersionUID = 42L;
 
+    // Max uploaded file size
+    private static final int MAX_FILE_SIZE = 2 * 1024 * 1024;
+
     //Temporary Windows and Linux solution for uploading directory.
     private static final String UPLOAD_DIRECTORY = System.getProperty("java.io.tmpdir");
 
+    //HTML header for drawing the page correctly
     private static final String HTML_HEADER = "<!DOCTYPE html>\n"
             + "<html>\n"
             + "    <head>\n"
@@ -85,9 +89,9 @@ public class UploadServlet extends HttpServlet {
         contextPath = super.getServletContext().getContextPath();
 
         HTML_FOOTER = "</div>\n"
-                + "<div class=\"card-footer text-muted\">\n"
-                + "<a href=\"" + contextPath + "\">Go back to upload.</a>\n"
-                + "</div>\n"
+                + " <div class=\"card-footer text-muted\">\n"
+                + " <a href=\"" + contextPath + "\">Go back to upload</a>\n"
+                + " </div>\n"
                 + "</div>\n"
                 + "</body>\n"
                 + "</html>";
@@ -98,8 +102,8 @@ public class UploadServlet extends HttpServlet {
     }
 
     /**
-     * Handles the HTTP <code>GET</code> method. An ugly way to display uploaded
-     * image in a servlet from local disk.
+     * Handles the HTTP <code>GET</code> method. A simple way to display an
+     * uploaded image in a servlet from local disk.
      *
      * @param request servlet request
      * @param response servlet response
@@ -143,38 +147,61 @@ public class UploadServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             // Print the HTML header
             out.println(HTML_HEADER);
-            // Check if a file was actually uploaded
-            Part filePart = request.getPart("file");
-            if (filePart == null || filePart.getSubmittedFileName().isEmpty()) {
-                out.println("<h1>No file uploaded.</h1>");
-                out.println(HTML_FOOTER);
-                return;
-            }
-            // Get the uploaded filename, remove nonASCII and whitespaces
-            String fileName = Paths.get(filePart.getSubmittedFileName())
-                    .getFileName().toString().replaceAll("\\s", "")
-                    .replaceAll("[^\\x00-\\x7F]", "");
 
-            // Validate the file's extension
-            if (!fileName.endsWith(".jpg") && !fileName.endsWith(".jpeg") && !fileName.endsWith(".png")) {
-                out.println("<h1>Invalid file type - .jpg, .jpeg, and .png are allowed.</h1>");
-                out.println(HTML_FOOTER);
-                return;
-            }
-            // Save the file to the specified location
-            try (InputStream inputStream = filePart.getInputStream()) {
-                Files.copy(inputStream, Paths.get(UPLOAD_DIRECTORY + fileName), StandardCopyOption.REPLACE_EXISTING);
-            } catch (IOException e) {
-                out.println("<h1>Error while uploading the file.</h1>");
-                out.println(HTML_FOOTER);
-            }
+            // Print an HTML List "header"
+            out.println("<ul class=\"list-group\">\n");
+            // Process multifile upload
+            for (Part filePart : request.getParts()) {
 
-            // Print the HTML page and the image already uploaded.
-            out.println("<h4 class=\"card-title\"><strong>File " + fileName + " uploaded.</strong></h4>\n"
-                    + "<form id=\"image_name\" method=\"GET\" action=\"" + request.getRequestURI() + "\">\n"
-                    + "  <input type=\"hidden\" id=\"imname\" name=\"imname\" value=\"" + fileName + "\"> "
-                    + "   <button type=\"submit\" class=\"btn btn-primary m-2\">Show " + fileName + "</button>\n"
-                    + "</form>");
+                // Check if a file was actually uploaded
+                if (filePart == null || filePart.getSubmittedFileName().isEmpty()) {
+                    out.println("<h1>No file uploaded.</h1>");
+                    out.println(HTML_FOOTER);
+                    return; // TODO replace this with custom ErrorHandler
+                }
+                // Get the uploaded filename, remove nonASCII and whitespaces
+                // convert to lowercase so even things like .PNG gets recognized
+                String fileName = Paths.get(filePart.getSubmittedFileName())
+                        .getFileName().toString().toLowerCase()
+                        .replaceAll("\\s", "")
+                        .replaceAll("[^\\x00-\\x7F]", "");
+                // Validate the file's size
+                long size = filePart.getSize();
+                if (size > MAX_FILE_SIZE) { // 2 MB
+                    request.setAttribute("error", "File is too large (max size is 1 MB)");
+                    out.println("<h1>File is too large max allowed "
+                            + "size is " + MAX_FILE_SIZE + ".</h1>");
+                    out.println(HTML_FOOTER);
+                    return;
+                }
+
+                // Validate the file's extension
+                if (!fileName.endsWith(".jpg") && !fileName.endsWith(".jpeg") && !fileName.endsWith(".png")) {
+                    out.println("<h1>Invalid file type - .jpg, .jpeg, and .png are allowed.</h1>");
+                    out.println(HTML_FOOTER);
+                    return;
+                }
+                // Save the file to the specified location
+                try (InputStream inputStream = filePart.getInputStream()) {
+                    Files.copy(inputStream, Paths.get(UPLOAD_DIRECTORY + fileName), StandardCopyOption.REPLACE_EXISTING);
+                } catch (IOException e) {
+                    out.println("<h1>Error while uploading the file.</h1>");
+                    out.println(HTML_FOOTER);
+                }
+
+                out.println("<li class=\"list-group-item\">"
+                        + "<form id=\"image_name\" method=\"GET\""
+                        + "action=\"" + request.getRequestURI() + "\">"
+                        + "<input type=\"hidden\" id=\"imname\" name=\"imname\""
+                        + "value=\"" + fileName + "\">"
+                        + "<button type=\"submit\" class=\"btn btn-primary m-2\">"
+                        + "Show "
+                        + fileName.substring(0, fileName.length() / 2)
+                        + "...</button>"
+                        + "</form>"
+                        + "</li>");
+            }
+            out.println("</ul>");
             out.println(HTML_FOOTER);
         }
     }
