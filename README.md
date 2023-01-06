@@ -24,6 +24,8 @@ Automatically generated Javadoc documentation can be found in the `doc/` folder.
 
 ### Deploying .war files to Glassfish (Linux but it should work on Windows too)
 
+- The projects contain `.war` 
+
 - Download and install GlassFish 7 on your computer. You can download it from the following link:
     <https://glassfish.java.net/download.html>
 
@@ -56,6 +58,7 @@ Automatically generated Javadoc documentation can be found in the `doc/` folder.
 
 ##### First example (/servlet_example/ExampleServlet)
 
+- For deployment see [Section on .war deployment](#deploying-war-files-to-glassfish-linux-but-it-should-work-on-windows-too).
 - The Servlet example is a Random Number Guessing game. The class implements HTTP requests and utilizes Cookies for primitive session keeping.
 - You can test the Example Servlet via  a web browser or "API-testing" program like [Postman](https://www.postman.com/) or cURL (manipulating raw HTTP requests sent to e.g.<http://localhost:8080/servlet_jsp_example/ExampleServlet>) - You need to use something like Postman to test DELETE and PUT methods - as they can't be called from HTML page.
 - You can test GET, POST, PUT, DELETE  HTTP requests on the Servlet.
@@ -67,16 +70,17 @@ Automatically generated Javadoc documentation can be found in the `doc/` folder.
 - Second Servlet example is an updated multiple File Upload servlet using the capabilities of Jakarta EE 10 (Servlet 3.0+ in-house fileupload).
 - It's capabilities are to upload multiple files and validate them in some ways (check that they are images, their size etc.).
 - You can also view the uploaded images through simple HTML page.
-- You can deploy it the same way you did the first example (or any other .war as has been specified before).
+- You can deploy it the same way you did the first example ([Section on .war deployment](#deploying-war-files-to-glassfish-linux-but-it-should-work-on-windows-too)).
 - After deploying, you should find it at <http://localhost:8080/servlet_upload_example/> or through Applications -> Launch in Glassfish Admin GUI.
 
 #### JSP Examples 2.0
-TODO:README.pdf ONLY:
-- We refactored the current JSP examples, because they are pretty all-embracing already.
-- They have been refactored to run out of box with JDK 17 and Glassfish 7 and support deployment from Netbeans.
-- New unified Bootstrap UI has been created and the functionality of the project has been tested with Glassfish 7 and JDK 17.
-- Compiled .war is added to the root of the projects for easy deployment
 
-Dílčí readme:
+- For deployment see [Section on .war deployment](#deploying-war-files-to-glassfish-linux-but-it-should-work-on-windows-too).
+- After deployment, you should find the app running on <http://localhost:8080/JSPExamples/>
 - This is a set of JSP examples that showcase various JSP scenarios.
-- You can deploy them as the other projects ([Section on .war deployment](#deploying-war-files-to-glassfish-linux-but-it-should-work-on-windows-too)).
+- User can test simple `calendar` shopping `cart` `mail` and `number guesser game`.
+- We have updated and refactored the older GJA JSP examples, because they are pretty all-embracing already.
+- They have been refactored to run out of box with JDK 17 and Glassfish 7 and support deployment from Netbeans.
+- New unified Bootstrap UI (similar to the new servlet examples) has been created and the functionality of the project has been tested with Glassfish 7 and JDK 17.
+- Compiled .war is added to the root of the projects for easy deployment.
+- Javadoc has been generated and put into `doc/`.
