@@ -26,7 +26,7 @@ Automatically generated Javadoc documentation can be found in the `doc/` folder.
 
 - The projects contain `.war` files that should be ready for deployment follow the next steps to deploy.
 
-- You can also build/compile the project yourself. Open the project folder in `Netbeans 16` and click `Run -> Clean and Build`. The resulting `.war` file should be in the target/ folder in the root of the project.
+- You can also build/compile the project yourself. Open the project folder in `Netbeans 16` and click `Run -> Clean and Build`. The resulting `.war` file should be in the `target/` folder in the root of the project.
 
 - To correctly deploy the project, download and install GlassFish 7 on your computer. You can download it from the following link:
     <https://glassfish.java.net/download.html>
@@ -50,11 +50,9 @@ Automatically generated Javadoc documentation can be found in the `doc/` folder.
 
 - In the next screen, you can specify deployment options such as the context root and the target server (you can leave the defaults). Make any necessary changes and click on the "Finish" button to deploy the .war file.
 
-- Click on the "Applications" on the left again and "Launch" the specified Application. It should show you the links, but we reccomend to change the Context Root in the application to something like /servlet_jsp_example (instead of /servlet_jsp_example-14374286702991946667.0 etc.) or just leave it and use it as the root of the examples.
+- Click on the "Applications" on the left again and "Launch" the specified Application. It should show you the links, but we recommend to change the Context Root in the application to something like /servlet_jsp_example (instead of /servlet_jsp_example-14374286702991946667.0 etc.) or just leave it and use it as the root of the examples.
 
 - The .war file will now be deployed to GlassFish and should be accessible at the specified context root. You can check the URLs we specify in the examples section.
-
-<div style="page-break-after: always"></div>
 
 #### Servlet Examples
 
@@ -66,6 +64,8 @@ Automatically generated Javadoc documentation can be found in the `doc/` folder.
 - You can test GET, POST, PUT, DELETE  HTTP requests on the Servlet.
 - By calling PUT manually you restart the game. By calling DELETE you delete the Cookies and Restart the Game (deletes your username, high score etc.) - this will be only available through cURL and/or Postman as they have different sessions than your browser.
 - This example, showing basic capabilities of Servlets is also a deterrent example of why it is better to use something like JSP for HTML rendering.
+- Compiled `.war` is added to the root of the projects for easy deployment.
+- Javadoc documentation has been generated and put into `doc/`.
 
 ##### Second example (/servlet_upload_example/)
 
@@ -74,15 +74,17 @@ Automatically generated Javadoc documentation can be found in the `doc/` folder.
 - It's capabilities are to upload multiple files and validate them in some ways (check that they are images, their size etc.).
 - You can also view the uploaded images through simple HTML page.
 - After deploying, you should find it at <http://localhost:8080/servlet_upload_example/> or through Applications -> Launch in Glassfish Admin GUI.
+- Compiled `.war` is added to the root of the projects for easy deployment.
+- Javadoc documentation has been generated and put into `doc/`.
 
 #### JSP Examples 2.0
 
 - For deployment see [Section on .war deployment](#deploying-war-files-to-glassfish-linux-but-it-should-work-on-windows-too).
 - After deployment, you should find the app running on <http://localhost:8080/JSPExamples/>
 - This is a set of JSP examples that showcase various JSP scenarios.
-- User can test simple `calendar` shopping `cart` `mail` and `number guesser game`.
-- We have updated and refactored the older GJA JSP examples, because they are pretty all-embracing already.
-- They have been refactored to run out of box with JDK 17 and Glassfish 7 and support deployment from Netbeans.
+- User can test simple `calendar`, shopping `cart`, `mail` and `number guesser game`.
+- We have updated and refactored the older GJA JSP examples, because they are all-embracing already.
+- They have been refactored to run out of box with JDK 17 and Glassfish 7 and support deployment out of Netbeans.
 - New unified Bootstrap UI (similar to the new servlet examples) has been created and the functionality of the project has been tested with Glassfish 7 and JDK 17.
-- Compiled .war is added to the root of the projects for easy deployment.
-- Javadoc has been generated and put into `doc/`.
+- Compiled `.war` is added to the root of the projects for easy deployment.
+- Javadoc documentation has been generated and put into `doc/`.
