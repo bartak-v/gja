@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"net.roseindia.ejb4.stateless.example","l":"CalculatorBean"},{"p":"net.roseindia.ejb4.stateless.example","l":"CalculatorRemote"}];updateSearchResults();

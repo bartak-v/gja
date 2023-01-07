@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.vut.fit.gja.vut_news_selenium","l":"VUTNews"}];updateSearchResults();

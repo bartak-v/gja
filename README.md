@@ -77,6 +77,36 @@ Open the `index.html` in each documentation to see the Javadoc.
 - Compiled `.war` is added to the root of the projects for easy deployment.
 - `Javadoc` documentation has been generated and put into `doc/`.
 
+#### Testing, Maven, JAX Examples
+
+##### calculator-junit_arquillian
+
+- Demo shows usage of unit testing in Java using JUnit and also integration testing using Arquillian
+- Unit tests are implemented on Calculator class, testing the results of basic mathematical operations
+- Integration tests are implemented on Student class. A student injects Calculator. This dependency injection is then tested using Arquillian.
+- Compiled `.jar` is added to the root of the projects for easy deployment.
+- `Javadoc` documentation has been generated and put into `doc/`.
+
+##### VUTNews-selenium
+
+- A demo of Selenium using Chrome browser to read news from VUT index page.
+- Usage of properties, dependencyManagement and main class selection in pom.xml.
+- Compiled `.jar` is added to the root of the projects for easy deployment.
+- `Javadoc` documentation has been generated and put into `doc/`.
+
+##### JAX -WS
+
+- Client and publisher, first run publisher. Client then connects to the publisher at port 6666 (if the port is not free on your machine, change it) and retrieves object HelloWorld. The call *hello.getHelloWorldAsString("fit")* seems to be executed on client side but it is actually executed in the publisher app and the result is retrieved through the port.
+- Compiled `.jar` is added to the root of the projects for easy deployment.
+- `Javadoc` documentation has been generated and put into `doc/`.
+
+##### Jersey
+
+- A Jersey demo showing basic usage of the framework. The application runs at http://localhost:8080/jersey.
+- There are 2 controller Classes, first *Basic* shows basic HTTP GET processing. Second *Arguments* shows retrieving user input multiple ways.
+- Compiled `.war` is added to the root of the projects for easy deployment.
+- `Javadoc` documentation has been generated and put into `doc/`.
+
 #### JSP Examples 2.0
 
 - For deployment see [Section on .war deployment](#deploying-war-files-to-GlassFish-linux-but-it-should-work-on-windows-too).
@@ -88,4 +118,89 @@ Open the `index.html` in each documentation to see the Javadoc.
 - The code has been refactored and reformated to use `HTML 5` and `Jakarta EE 10`.
 - New unified `Bootstrap 5 UI` (similar to the new servlet examples) has been created and the functionality of the project has been tested with `GlassFish 7` and `JDK 17`.
 - Compiled `.war` is added to the root of the projects for easy deployment.
+- `Javadoc` documentation has been generated and put into `doc/`.
+
+#### EJB and JSF Examples
+
+##### EJB StatefulBean and StatelessBean
+- Two projects showing the difference between stateful and stateless beans.
+- The stateful bean project shows a bank account bean, which balance is preserved thanks to the bean being stateful across client requests.
+- The stateless bean project is very simillar in structure. This time a @Stateless annotation is used on the bean because there is no point in holding a state of a calculator (at least not in this example, where are no intermediate results)
+- applications runs at http://localhost:8080/StatefullBean and http://localhost:8080/StatelessBean
+- Compiled `.war` is added to the root of the projects for easy deployment.
+- `Javadoc` documentation has been generated and put into `doc/`.
+
+##### JSFPageNavigation
+
+- Showcase of types of navigations between pages that can be used in JSF.  There are navigation rules in *faces-config.xml*, usage of commandLinks and commandButtons. Also a difference between redirection and forwarding. All the necessary information can be found in comments in source code.
+- application runs at http://localhost:8080/JSFPageNavigation
+- Compiled `.war` is added to the root of the projects for easy deployment.
+- `Javadoc` documentation has been generated and put into `doc/`.
+
+##### JSFEventListeners
+
+- Showing some basic events and listeners in JSF. There is:
+    - ActionListener which is called on button click
+    - SystemListener which listens on application start and stop
+    - ValueChangeListener which listens on second *selectOneMenu* element in *homepage.xhtml*. There is also shown a direct method call in first *selectOneMenu* element.
+- The listeners (except SystemListener) change values in UserData bean.
+- application runs at http://localhost:8080/JSFEventListeners
+- Compiled `.war` is added to the root of the projects for easy deployment.
+- `Javadoc` documentation has been generated and put into `doc/`.
+
+##### JSFCustomComponent
+
+- Creation of custom register component in JSF. Take a look at *register.xml* and see its usage in *default.xhtml*.
+- The new component is configured via defined attributes like *<composite:attribute name="emailLabel" />*, which must be provided when you want to use the new component. Then its implementation is rendered.
+- application runs at http://localhost:8080/JSFCustomComponent
+- Compiled `.war` is added to the root of the projects for easy deployment.
+- `Javadoc` documentation has been generated and put into `doc/`.
+
+##### JSFAjax
+
+- in *home.xml* is shown a usage of ajax to change *UserData* bean attribute *name*. After the Ajax call is processed, the *outputText* element is rerendered ( defined in *render="outputMessage"* attribute in *f:ajax* element).
+- application runs at http://localhost:8080/JSFAjax
+- Compiled `.war` is added to the root of the projects for easy deployment.
+- `Javadoc` documentation has been generated and put into `doc/`.
+
+#### JPA and Hibernate Examples
+
+##### JPA-SE
+
+- Shows basic usage of entity manager.
+- The application uses ObjectDB for its easy implementation (no DB configuration needed).
+- Objects of Point class are stored in local object database, then being queried upon.
+- Example shows selecting all points from database and two aggregation functions.
+- Compiled `.jar` is added to the root of the projects for easy deployment.
+- `Javadoc` documentation has been generated and put into `doc/`.
+
+##### JPA-EE
+
+- The example once again uses ObjectDB.
+- Similar to usage in SE, but this example uses user input and HTTP protocol to create objects to save
+- ServletContextListener initializes object database and closes it on application stop
+- on HTTP request *GuestServlet* checks if parameter *name* is not null. If not, creates a new Guest and saves into the object db
+- The parameter is set via form in *guest.jsp*ä
+- application runs at http://localhost:8080/JPA-EE
+- Compiled `.war` is added to the root of the projects for easy deployment.
+- `Javadoc` documentation has been generated and put into `doc/`.
+
+##### HibernateExample and HibernateAnnotation
+
+- Usage of Hibernate framework. A MySQL connection needs to be configured in *hibernate.cfg.xml*. The example also provides SQL file for table creation.
+- There is a *Employee* class and *Employee.hbm.xml* mapping defined upon the class. The mapping is registered in *hibernate.cfg.xml*.
+- *ManageEmployee* class implements operations:
+  - addBatchEmployees() - usage of persist() and flush() to execute SQL commands in batches
+  - addEmployee(fname, lname, salary) - add record to table
+  - deleteEmployee(ID) - delete record from table by ID
+  - listEmployeesEntity() - select all records
+  - listEmployeesScalar() - projection
+  - updateEmployee(ID, salary) - update record by ID
+- *MyInterceptor* has methods, which are called on Hibernate events like *onSave*.  The interceptor is created when a DB session is created:
+```Java
+// Session session = factory.openSession();
+Session session = factory.withOptions().interceptor(new MyInterceptor()).openSession();
+```
+- HibernateAnnotation is a project (with no functionality) with annotation Employee mapping instead of XML.
+- Compiled `.jar` is added to the root of the projects for easy deployment.
 - `Javadoc` documentation has been generated and put into `doc/`.

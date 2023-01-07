@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"cz.vutbr.fit","c":"UserData","l":"getName()"},{"p":"cz.vutbr.fit","c":"UserData","l":"getWelcomeMessage()"},{"p":"cz.vutbr.fit","c":"UserData","l":"setName(String)","u":"setName(java.lang.String)"},{"p":"cz.vutbr.fit","c":"UserData","l":"UserData()","u":"%3Cinit%3E()"}];updateSearchResults();

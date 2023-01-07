@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"net.roseindia.ejb4.statefull.example","l":"AccountBean"},{"p":"net.roseindia.ejb4.statefull.example","l":"AccountRemote"},{"l":"All Classes and Interfaces","u":"allclasses-index.html"}];updateSearchResults();

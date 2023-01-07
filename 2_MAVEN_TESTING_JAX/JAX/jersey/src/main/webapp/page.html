@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Links</h1>
+        <ul>
+            <li><a href="/items/4">url parameter</a></li>
+            <li><a href="/items/5">url parameter 204 - NO CONTENT</a></li>
+            <li><a href="/items/search?name=jogurt">query parameter</a></li>
+            <li>
+                <form method="POST" action="/items/place-order">
+                    <input type="text" name="deliveryAddress">
+                    <input type="number" name="quantity">
+                    <input type="submit" value="submit">
+                </form>
+            </li>
+        </ul>
+    </body>
+</html>
