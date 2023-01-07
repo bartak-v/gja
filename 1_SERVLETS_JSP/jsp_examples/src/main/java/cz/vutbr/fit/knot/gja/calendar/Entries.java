@@ -53,7 +53,7 @@ public class Entries {
     }
 
     /**
-     * Gets number of rows
+     * Get number of rows
      *
      * @return Number of rows
      */
@@ -62,7 +62,7 @@ public class Entries {
     }
 
     /**
-     * Gets entry on given row
+     * Get entry on given row
      *
      * @param row Row
      * @return Entry on given row
@@ -72,7 +72,7 @@ public class Entries {
     }
 
     /**
-     * Gets row of given time
+     * Get row of given time
      *
      * @param tm Time
      * @return Row of given time

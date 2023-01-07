@@ -44,7 +44,7 @@ public class NumberGuessBean {
   }
 
   /**
-   * Sets current guess and determines new hint
+   * Set current guess and determines new hint
    * 
    * @param guess Guess
    */
@@ -72,7 +72,7 @@ public class NumberGuessBean {
   }
 
   /**
-   * Gets success indicator
+   * Get success indicator
    * 
    * @return Value of success indicator
    */
@@ -81,7 +81,7 @@ public class NumberGuessBean {
   }
 
   /**
-   * Gets hint
+   * Get hint
    * 
    * @return Hint 
    */
@@ -90,7 +90,7 @@ public class NumberGuessBean {
   }
 
   /**
-   * Gets number of guesses
+   * Get number of guesses
    * 
    * @return Number of guesses
    */

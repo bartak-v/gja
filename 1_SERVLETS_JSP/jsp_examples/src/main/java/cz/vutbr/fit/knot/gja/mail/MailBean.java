@@ -40,7 +40,7 @@ public class MailBean {
     private String mailcontent;
 
     /**
-     * Sets sender address
+     * Set sender address
      *
      * @param m New sender address
      */
@@ -49,7 +49,7 @@ public class MailBean {
     }
 
     /**
-     * Gets sender address
+     * Get sender address
      *
      * @return Sender's address
      */
@@ -58,7 +58,7 @@ public class MailBean {
     }
 
     /**
-     * Sets receiver address
+     * Set receiver address
      *
      * @param m New receiver address
      */
@@ -67,7 +67,7 @@ public class MailBean {
     }
 
     /**
-     * Gets receiver address
+     * Get receiver address
      *
      * @return Receiver's address
      */
@@ -76,7 +76,7 @@ public class MailBean {
     }
 
     /**
-     * Sets subject
+     * Set subject
      *
      * @param s New subject
      */
@@ -85,7 +85,7 @@ public class MailBean {
     }
 
     /**
-     * Gets subject
+     * Get subject
      *
      * @return Subject
      */
@@ -94,7 +94,7 @@ public class MailBean {
     }
 
     /**
-     * Sets content
+     * Set content
      *
      * @param c New content
      */
@@ -103,7 +103,7 @@ public class MailBean {
     }
 
     /**
-     * Gets content
+     * Get content
      *
      * @return Content
      */

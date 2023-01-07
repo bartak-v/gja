@@ -35,7 +35,7 @@ public class JspCalendar {
     }
 
     /**
-     * Gets year
+     * Get year
      *
      * @return Year
      */
@@ -44,7 +44,7 @@ public class JspCalendar {
     }
 
     /**
-     * Gets month
+     * Get month
      *
      * @return Month (word)
      */
@@ -61,7 +61,7 @@ public class JspCalendar {
     }
 
     /**
-     * Gets day
+     * Get day
      *
      * @return Day (as a word)
      */
@@ -76,7 +76,7 @@ public class JspCalendar {
     }
 
     /**
-     * Gets month number
+     * Get month number
      *
      * @return Month number
      */
@@ -85,7 +85,7 @@ public class JspCalendar {
     }
 
     /**
-     * Gets formatted date
+     * Get formatted date
      *
      * @return Formatted date
      */
@@ -94,7 +94,7 @@ public class JspCalendar {
     }
 
     /**
-     * Gets current date
+     * Get current date
      *
      * @return Current formatted date
      */
@@ -106,7 +106,7 @@ public class JspCalendar {
     }
 
     /**
-     * Sets calendar to next date and returns it
+     * Set calendar to next date and returns it
      *
      * @return Next date
      */
@@ -116,7 +116,7 @@ public class JspCalendar {
     }
 
     /**
-     * Sets calendar to previous date and returns it
+     * Set calendar to previous date and returns it
      *
      * @return Previous date
      */
@@ -126,7 +126,7 @@ public class JspCalendar {
     }
 
     /**
-     * Gets formatted time
+     * Get formatted time
      *
      * @return Formatted time
      */
@@ -135,7 +135,7 @@ public class JspCalendar {
     }
 
     /**
-     * Gets number of day of month
+     * Get number of day of month
      *
      * @return Number of day of month
      */
@@ -144,7 +144,7 @@ public class JspCalendar {
     }
 
     /**
-     * Gets number of day in year
+     * Get number of day in year
      *
      * @return Number of day in a year
      */
@@ -153,7 +153,7 @@ public class JspCalendar {
     }
 
     /**
-     * Gets number of week in year
+     * Get number of week in year
      *
      * @return Number of week in year
      */
@@ -162,7 +162,7 @@ public class JspCalendar {
     }
 
     /**
-     * Gets number of week in month
+     * Get number of week in month
      *
      * @return Number of week in month
      */
@@ -171,7 +171,7 @@ public class JspCalendar {
     }
 
     /**
-     * Gets number of day in week
+     * Get number of day in week
      *
      * @return Number of day in week
      */
@@ -180,7 +180,7 @@ public class JspCalendar {
     }
 
     /**
-     * Gets hour
+     * Get hour
      *
      * @return Hour
      */
@@ -189,7 +189,7 @@ public class JspCalendar {
     }
 
     /**
-     * Gets minute
+     * Get minute
      *
      * @return Minute
      */
@@ -198,7 +198,7 @@ public class JspCalendar {
     }
 
     /**
-     * Gets second
+     * Get second
      *
      * @return Second
      */
@@ -207,7 +207,7 @@ public class JspCalendar {
     }
 
     /**
-     * Gets era
+     * Get era
      *
      * @return Era
      */
@@ -216,7 +216,7 @@ public class JspCalendar {
     }
 
     /**
-     * Gets US time zone
+     * Get US time zone
      *
      * @return US time zone
      */
@@ -228,7 +228,7 @@ public class JspCalendar {
     }
 
     /**
-     * Gets time zone offset
+     * Get time zone offset
      *
      * @return Time zone offset in hours
      */
@@ -237,7 +237,7 @@ public class JspCalendar {
     }
 
     /**
-     * Gets daylight saving time offset
+     * Get daylight saving time offset
      *
      * @return Daylight saving time offset
      */
@@ -246,7 +246,7 @@ public class JspCalendar {
     }
 
     /**
-     * Gets AM or PM
+     * Get AM or PM
      *
      * @return AM or PM
      */

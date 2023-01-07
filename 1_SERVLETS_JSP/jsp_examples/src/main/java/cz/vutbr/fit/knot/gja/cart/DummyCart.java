@@ -63,7 +63,7 @@ public class DummyCart {
     }
 
     /**
-     * Sets edited item name
+     * Set edited item name
      *
      * @param name Name of item
      */
@@ -72,7 +72,7 @@ public class DummyCart {
     }
 
     /**
-     * Sets submission indicator
+     * Set submission indicator
      *
      * @param s Submission indicator value
      */
@@ -81,7 +81,7 @@ public class DummyCart {
     }
 
     /**
-     * Gets array of items
+     * Get array of items
      *
      * @return Array of items
      */

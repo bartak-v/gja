@@ -59,7 +59,7 @@ public class TableBean {
     }
 
     /**
-     * Sets user name
+     * Set user name
      *
      * @param nm New user name
      */
@@ -68,7 +68,7 @@ public class TableBean {
     }
 
     /**
-     * Gets user name
+     * Get user name
      *
      * @return User's name
      */
@@ -77,7 +77,7 @@ public class TableBean {
     }
 
     /**
-     * Sets user email
+     * Set user email
      *
      * @param mail New user email
      */
@@ -86,7 +86,7 @@ public class TableBean {
     }
 
     /**
-     * Gets user email
+     * Get user email
      *
      * @return User's email
      */
@@ -95,7 +95,7 @@ public class TableBean {
     }
 
     /**
-     * Gets current date
+     * Get current date
      *
      * @return Current date
      */
@@ -104,7 +104,7 @@ public class TableBean {
     }
 
     /**
-     * Gets list of entries
+     * Get list of entries
      *
      * @return List of entries
      */
@@ -158,7 +158,7 @@ public class TableBean {
     }  // processRequest()
 
     /**
-     * Gets error indicator
+     * Get error indicator
      *
      * @return True if error occurred, False otherwise
      */

@@ -41,7 +41,7 @@ public class Entry {
     }
 
     /**
-     * Gets hour
+     * Get hour
      *
      * @return Hour
      */
@@ -50,7 +50,7 @@ public class Entry {
     }
 
     /**
-     * Gets color
+     * Get color
      *
      * @return Color
      */
@@ -63,7 +63,7 @@ public class Entry {
     }
 
     /**
-     * Gets description
+     * Get description
      *
      * @return Description
      */
@@ -76,7 +76,7 @@ public class Entry {
     }
 
     /**
-     * Sets description
+     * Set description
      *
      * @param descr New description
      */
