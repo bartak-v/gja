@@ -77,6 +77,23 @@ Open the `index.html` in each documentation to see the Javadoc.
 - Compiled `.war` is added to the root of the projects for easy deployment.
 - `Javadoc` documentation has been generated and put into `doc/`.
 
+#### JSP Examples 2.0
+
+- For deployment see [Section on .war deployment](#deploying-war-files-to-GlassFish-linux-but-it-should-work-on-windows-too).
+- After deployment, you should find the app running on <http://localhost:8080/JSPExamples/>
+- This is a set of `JSP` examples that showcase various `JSP` scenarios.
+- User can test simple `calendar`, shopping `cart`, `mail` and `number guesser game`.
+- Instead of creating new `JSP` examples, we have updated and refactored the older GJA `JSP` examples - because they are all-embracing already.
+- They have been refactored to run out of box with `JDK 17` and `GlassFish 7` and support deployment out of `Netbeans`.
+- The code has been refactored and reformated to use `HTML 5` and `Jakarta EE 10`.
+- New unified `Bootstrap 5 UI` (similar to the new servlet examples) has been created and the functionality of the project has been tested with `GlassFish 7` and `JDK 17`.
+- Compiled `.war` is added to the root of the projects for easy deployment.
+- `Javadoc` documentation has been generated and put into `doc/`.
+
+#### JMS Examples
+
+- After 7+ hours of debugging and Googling I was not able to get a basic example HelloWorld JMS example (or any of the older examples) running with `Glassfish 7` and  `Jakarta EE 10` - so this part was skipped.
+
 #### Testing, Maven, JAX Examples
 
 ##### calculator-junit_arquillian
@@ -107,22 +124,10 @@ Open the `index.html` in each documentation to see the Javadoc.
 - Compiled `.war` is added to the root of the projects for easy deployment.
 - `Javadoc` documentation has been generated and put into `doc/`.
 
-#### JSP Examples 2.0
-
-- For deployment see [Section on .war deployment](#deploying-war-files-to-GlassFish-linux-but-it-should-work-on-windows-too).
-- After deployment, you should find the app running on <http://localhost:8080/JSPExamples/>
-- This is a set of `JSP` examples that showcase various `JSP` scenarios.
-- User can test simple `calendar`, shopping `cart`, `mail` and `number guesser game`.
-- Instead of creating new `JSP` examples, we have updated and refactored the older GJA `JSP` examples - because they are all-embracing already.
-- They have been refactored to run out of box with `JDK 17` and `GlassFish 7` and support deployment out of `Netbeans`.
-- The code has been refactored and reformated to use `HTML 5` and `Jakarta EE 10`.
-- New unified `Bootstrap 5 UI` (similar to the new servlet examples) has been created and the functionality of the project has been tested with `GlassFish 7` and `JDK 17`.
-- Compiled `.war` is added to the root of the projects for easy deployment.
-- `Javadoc` documentation has been generated and put into `doc/`.
-
 #### EJB and JSF Examples
 
 ##### EJB StatefulBean and StatelessBean
+
 - Two projects showing the difference between stateful and stateless beans.
 - The stateful bean project shows a bank account bean, which balance is preserved thanks to the bean being stateful across client requests.
 - The stateless bean project is very simillar in structure. This time a @Stateless annotation is used on the bean because there is no point in holding a state of a calculator (at least not in this example, where are no intermediate results)
@@ -140,9 +145,9 @@ Open the `index.html` in each documentation to see the Javadoc.
 ##### JSFEventListeners
 
 - Showing some basic events and listeners in JSF. There is:
-    - ActionListener which is called on button click
-    - SystemListener which listens on application start and stop
-    - ValueChangeListener which listens on second *selectOneMenu* element in *homepage.xhtml*. There is also shown a direct method call in first *selectOneMenu* element.
+  - ActionListener which is called on button click
+  - SystemListener which listens on application start and stop
+  - ValueChangeListener which listens on second *selectOneMenu* element in *homepage.xhtml*. There is also shown a direct method call in first *selectOneMenu* element.
 - The listeners (except SystemListener) change values in UserData bean.
 - application runs at http://localhost:8080/JSFEventListeners
 - Compiled `.war` is added to the root of the projects for easy deployment.
