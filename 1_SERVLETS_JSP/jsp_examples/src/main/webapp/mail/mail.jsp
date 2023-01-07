@@ -4,75 +4,57 @@
 <jsp:setProperty name="mailBean" property="*"/> 
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Example Mail Sending Form</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JSP Mail 2.0</title>
+        <link rel="icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Jakarta_ee_logo_schooner_color_stacked_default.svg/1280px-Jakarta_ee_logo_schooner_color_stacked_default.svg.png">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     </head>
-    <body bgcolor="white">
 
-        <p>This page will send an electronic mail message via the
-            <code>jakarta.mail.Session</code> resource factory that is configured into
-            the JNDI context for this web application.  Before it can be used
-            successfully, you must take note of the following:</p>
-        <ul>
-            <li>The default configuration assumes that there is an SMTP server running
-                on <strong>localhost</strong>.  If this is not the case, edit your
-                <code>conf/server.xml</code> file and change the value for the
-                <code>mail.smtp.host</code> parameter to the name of a host that provides
-                SMTP service for your network.</li>
-            <li>The application logic assumes that no user authentication is required
-                by your SMTP server before accepting mail messages to be sent.</li>
-            <li>All of the fields below are required.</li>
-        </ul>
+    <body>
+        <div class="card w-50 mx-auto my-5 text-center">
+            <div class="card-header text-info">
+                GJA - Jakarta Mail 2.0 Example (JakartaEE 10)
+            </div>
+            <div class="card-body">
+                <h4 class="card-title"><strong>A Simple Email Application</strong></h4>
+                <p class="card-text lead">This page will send an electronic mail message via the
+                    <code>jakarta.mail.Session</code> resource factory that is configured into
+                    the JNDI context for this web application.  Before it can be used
+                    successfully, you must take note of the following:</p>
+                <ul class="border mx-auto p-2 w-75 list-unstyled">
+                    <li class="my-2">The default configuration assumes that there is an SMTP server running
+                        on <strong>localhost</strong>.  If this is not the case, edit your
+                        <code>conf/server.xml</code> file and change the value for the
+                        <code>mail.smtp.host</code> parameter to the name of a host that provides
+                        SMTP service for your network.</li>
+                    <li class="my-2">The application logic assumes that no user authentication is required
+                        by your SMTP server before accepting mail messages to be sent.</li>
+                </ul>
+                <form class="border border-primary rounded p-5" method="post" action="sendmail.jsp">
+                    <div class="form-group my-1">
+                        <input required type="text" name="mailfrom" size="60" class="form-control"  placeholder="From: Enter email">
+                    </div>
 
-        <form method="POST" action="sendmail.jsp">
-            <table>
+                    <div class="form-group my-1">
+                        <input required type="text" name="mailto" size="60" class="form-control" placeholder="To: Enter email">
+                    </div>
 
-                <tr>
-                    <th align="center" colspan="2">
-                        Enter The Email Message To Be Sent
-                    </th>
-                </tr>
+                    <div class="form-group my-1">
+                        <input required type="text" name="mailsubject" size="60" class="form-control" placeholder="Subject: Enter subject">
+                    </div>
 
-                <tr>
-                    <th align="right">From:</th>
-                    <td align="left">
-                        <input type="text" name="mailfrom" size="60">
-                    </td>
-                </tr>
+                    <div class="form-group  my-1">
+                        <textarea class="form-control" name="mailcontent" rows="10" cols="80"></textarea>
+                    </div>
 
-                <tr>
-                    <th align="right">To:</th>
-                    <td align="left">
-                        <input type="text" name="mailto" size="60">
-                    </td>
-                </tr>
-
-                <tr>
-                    <th align="right">Subject:</th>
-                    <td align="left">
-                        <input type="text" name="mailsubject" size="60">
-                    </td>
-                </tr>
-
-                <tr>
-                    <td colspan="2">
-                        <textarea name="mailcontent" rows="10" cols="80">
-                        </textarea>
-                    </td> 
-                </tr>
-
-                <tr>
-                    <td align="right">
-                        <input type="submit" value="Send">
-                    </td>
-                    <td align="left">
-                        <input type="reset" value="Reset">
-                    </td>
-                </tr>
-
-            </table>
-        </form>
-
+                    <input class="btn my-1 mx-3 btn-primary" type="submit" value="Send">
+                    <input class="btn my-1 btn-danger" type="reset" value="Reset">
+                </form>
+            </div>
+        </div>
     </body>
 </html>

@@ -6,7 +6,6 @@
 <jsp:useBean id="mailBean" class="cz.vutbr.fit.knot.gja.mail.MailBean" scope="session"/>
 <jsp:setProperty name="mailBean" property="*"/> 
 <%
-
   String result;
   // Recipient's email ID needs to be mentioned.
   String to = mailBean.getMailto();
@@ -42,18 +41,29 @@
 %>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Send HTML Email using JSP</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JSP Mail 2.0</title>
+        <link rel="icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Jakarta_ee_logo_schooner_color_stacked_default.svg/1280px-Jakarta_ee_logo_schooner_color_stacked_default.svg.png">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     </head>
     <body>
-        <center>
-            <h1>Send Email using JSP</h1>
-        </center>
-        <p align="center">
-            <%
-              out.println("Result: " + result + "\n");
-            %>
-        </p>
+    <body>
+        <div class="card w-50 mx-auto my-5 text-center">
+            <div class="card-header text-info">
+                GJA - Jakarta Mail 2.0 Example (JakartaEE 10)
+            </div>
+            <div class="card-body">
+                <h4 class="card-title"><strong>Sent Email using JSP</strong></h4>
+                <p class="lead">
+                    <%
+                      out.println("Result: " + result + "\n");
+                    %>
+                </p>
+            </div>
+        </div>
     </body>
 </html>
