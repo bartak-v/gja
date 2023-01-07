@@ -101,9 +101,9 @@ public class DummyCart {
             addItem(item);
         }
 
-        if (submit.equals("add")) {
+        if (submit.equals("Add")) {
             addItem(item);
-        } else if (submit.equals("remove")) {
+        } else if (submit.equals("Remove")) {
             removeItem(item);
         }
 

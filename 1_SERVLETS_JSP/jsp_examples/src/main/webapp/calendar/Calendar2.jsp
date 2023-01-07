@@ -30,8 +30,7 @@
                 <form method="post" action="Calendar1.jsp">
                     <input name="date" type="hidden" value="current">
                     <input name="time" type="hidden" value="<%= time%>">
-                    <label for="description">Description of the event</label>
-                    <input name="description" type="text" size="20">
+                    <input placeholder="Description of the event" name="description" type="text" size="20">
                     <input type="submit" value="Submit">
                 </form>
             </div>
