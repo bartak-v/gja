@@ -12,12 +12,11 @@ Open the `index.html` in each documentation to see the Javadoc.
 
 ### Prerequisites
 
- The project was developed in [Apache Netbeans 16](https://netbeans.apache.org/download/index.html) with [Eclipse Temurin JDK 17](https://adoptium.net/temurin/releases/?version=17) and [Eclipse GlassFish 7](https://projects.eclipse.org/projects/ee4j.GlassFish/releases/7.0.0) (`Jakarta EE 10 API`). Other prerequisite is that the user is somehow familiar with deploying Java Web Applications onto the server. If not, user can read
- the provided documentation.
+ The project was developed in [Apache Netbeans 16](https://netbeans.apache.org/download/index.html) with [Eclipse Temurin JDK 17](https://adoptium.net/temurin/releases/?version=17) and [Eclipse GlassFish 7](https://projects.eclipse.org/projects/ee4j.GlassFish/releases/7.0.0) (`Jakarta EE 10 API`). Other prerequisite is that the user is somehow familiar with using Netbeans and deploying Java Web Applications onto the server. If not, user can read the provided documentation.
 
 ### Precompiled .war files
 
-- For people, that just want to try the project, but don't want to build it themselves, they can download compiled `.war` files from the project's github <https://github.com/bartak-v/gja>. The `.war` file
+- For people, that just want to try the project, but don't want to build it themselves, they can download compiled `.war/.jar` files from the project's github <https://github.com/bartak-v/gja>. The `.war` file
 for each project is in the subfolder of the project.
 
 ### Installation and run
@@ -27,20 +26,43 @@ for each project is in the subfolder of the project.
 - Deploy the compiled `.war` file onto the `GlassFish` server (defaultly through [http://localhost:4848](http://localhost:4848))
 - You can also build the project yourself through standard practice in `Netbeans` (or manually using `Maven`).
 
-### Building and deploying the 
+### Building and deploying the projects with Netbeans 16 and GlassFish 7
 
-### Deploying .war files to GlassFish (Linux but it should work on Windows too)
+#### Environment Setup
 
-- The projects contain `.war` files, that should be ready for deployment follow the next steps to deploy.
+- First, install [Eclipse Temurin JDK 17](https://adoptium.net/temurin/releases/?version=17) and check that the `JAVA_HOME` is set correctly to the proper path, to where you have your JDK installed. `JAVA_HOME` should be set to `...example_jdk_path/bin`. Environment variable setup is out of scope of this project and we recommend `Google` if you have trouble with this (if it does not setup automatically when installing etc.).
+- Install [Apache Netbeans 16](https://netbeans.apache.org/download/index.html).
+- To correctly deploy the examples, download and install [GlassFish 7](https://GlassFish.java.net/download.html) on your computer. Save it in some User-owned folder that you have permissions to.
+- To set-up `Netbeans` to use the `GlassFish 7` server: Open `Netbeans 16`. Click on `Tools -> Servers` in the top bar.
+- Click `Add Server...`. Choose `GlassFish Server` and `Next`.
+- Set the `Installation Location` to the folder where you got your `Glassfish 7` downloaded. Select `Local Domain`.
+- DO NOT ACCEPT THE TERMS OF SERVICE AND DO NOT DOWNLOAD `GlassFish 6.2.5`, just click `Next`.
+- `Netbeans` will pretend, that your installation is version `6.2.5` but it will correctly work and run the version `7.0.0`.
+- In the next step set you can leave the `Defaults` and click `Finish` etc.
+- In the Server tab you should have set `Java Platform` to `JDK 17`.
+- You should now have correctly set-up `Netbeans` to use `GlassFish 7.0.0`
 
-- You can also build/compile the project yourself. Open the project folder as a Project in `Netbeans 16` and click `Run -> Clean and Build`. The resulting `.war` file should be in the `target/` folder in the root of the project.
+#### Building and deploying the example projects in Netbeans 16
+
+- Start `Netbeans` and click on the `File` menu in the top left corner.
+- Select `Open Project` from the drop-down menu.
+- In the file browser window that appears, navigate to the location where your project is stored and select the project folder.
+- Click the `Open` button.
+- Click on the `Build menu` in the top menu bar.
+- Select `Clean and Build Project` from the drop-down menu.
+- If the build is successful, you should see a message indicating that the build was successful. If there are any errors, they will be displayed in the output window at the bottom of the Netbeans window.
+- You can now click the `Play` button or press `F6` or go to `Run -> Run Project`, if you setup `Netbeans` correctly, web browser should start with the Project running.
+- Follow the instructions for each project (as they can be different than this) to successfully deploy and run the example.
+
+#### Deploying .war files to GlassFish manually (Linux but it should work on Windows too)
+
+- You can also deploy the project manually. After Building the project, the resulting `.war` file should be in the `target/` folder in the root of the project.
 
 - To correctly deploy the examples, download and install `GlassFish 7` on your computer. You can download it from the following link:
     <https://GlassFish.java.net/download.html>
 
 - Once `GlassFish` is installed, start the `domain`. You can start the `domain` by running the following command (in the `GlassFish` installation folder go to `GlassFish/bin/`) and run:
     `./asadmin start-domain` - for this to work you have to have correctly set the `JAVA_HOME` environment variable to where you have your JDK installed.
-    We recommend using [Eclipse Temurin JDK 17.0.5+8](https://adoptium.net/temurin/releases/?version=17). `JAVA_HOME` should be set to `...example_jdk_path/bin`. Environment variable setup is out of scope of this project and we recommend `Google` if you have trouble with this (if it does not setup automatically when installing etc.).
 
 - Next, open a web browser and navigate to the `GlassFish Administration Console` at the following URL:
     <http://localhost:4848/>
@@ -60,6 +82,10 @@ for each project is in the subfolder of the project.
 - Click on the `Applications` on the left again and `Launch` the specified Application. It should show you the links, but we recommend to change the `Context Root` in the application to something like `/servlet_jsp_example` (instead of `/servlet_jsp_example-14374286702991946667.0` etc.) or just leave it and use it as the root of the examples.
 
 - The `.war` file will now be deployed to GlassFish and should be accessible at the specified context root. You can check the URLs we specify in the examples section.
+
+### Examples
+
+Here follows instructions and information about each example.
 
 #### Servlet Examples
 
@@ -117,7 +143,7 @@ for each project is in the subfolder of the project.
 
 - A demo of Selenium using Chrome browser to read news from VUT index page.
 - Usage of properties, dependencyManagement and main class selection in pom.xml.
-- A web browser driver in root of the project is needed to run the application, a chrome driver can be downloaded at https://chromedriver.chromium.org/downloads
+- A web browser driver in the root of the project is needed to run the application, a chrome driver can be downloaded at <https://chromedriver.chromium.org/downloads>
 - Compiled `.jar` is added to the root of the projects for easy deployment.
 - `Javadoc` documentation has been generated and put into `doc/`.
 
