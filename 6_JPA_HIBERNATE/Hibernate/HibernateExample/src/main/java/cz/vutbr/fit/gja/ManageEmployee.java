@@ -42,8 +42,10 @@ public class ManageEmployee {
         try {
             tx = session.beginTransaction();
             Employee employee = new Employee(fname, lname, salary);
-            employeeID = (Integer) session.save(employee);
+            session.persist(employee);
+            session.flush();
             tx.commit();
+            employeeID = employee.getId();
         } catch (HibernateException e) {
             if (tx != null) {
                 tx.rollback();
