@@ -40,7 +40,7 @@ for each project is in the subfolder of the project.
 
 #### Environment Setup
 
-- First, install [Eclipse Temurin JDK 17](https://adoptium.net/temurin/releases/?version=17) and check that the `JAVA_HOME` is set correctly to the proper path, to where you have your JDK installed. `JAVA_HOME` should be set to `...example_jdk_path/bin`. Environment variable setup is out of scope of this project and we recommend `Google` if you have trouble with this (if it does not setup automatically when installing etc.).
+- First, install [Eclipse Temurin JDK 17](https://adoptium.net/temurin/releases/?version=17) and check that the `JAVA_HOME` is set correctly to the proper path, to where you have your JDK installed. `JAVA_HOME` should be set to `...example_jdk_path/`. Environment variable setup is out of scope of this project and we recommend `Google` if you have trouble with this (if it does not setup automatically when installing etc.).
 - Install [Apache Netbeans 16](https://netbeans.apache.org/download/index.html).
 - To correctly deploy the examples, download and install [GlassFish 7](https://GlassFish.java.net/download.html) on your computer. Save it in some User-owned folder that you have permissions to.
 - To set-up `Netbeans` to use the `GlassFish 7` server: Open `Netbeans 16`. Click on `Tools -> Servers` in the top bar.
