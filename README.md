@@ -39,7 +39,7 @@ for each project is in the subfolder of the project.
 - DO NOT ACCEPT THE TERMS OF SERVICE AND DO NOT DOWNLOAD `GlassFish 6.2.5`, just click `Next`.
 - `Netbeans` will pretend, that your installation is version `6.2.5` but it will correctly work and run the version `7.0.0`.
 - In the next step set you can leave the `Defaults` and click `Finish` etc.
-- In the Server tab you should have set `Java Platform` to `JDK 17`.
+- In the Server tab you should have set `Java Platform` to `JDK 17` for the server.
 - You should now have correctly set-up `Netbeans` to use `GlassFish 7.0.0`
 
 #### Building and deploying the example projects in Netbeans 16
@@ -52,6 +52,7 @@ for each project is in the subfolder of the project.
 - Select `Clean and Build Project` from the drop-down menu.
 - If the build is successful, you should see a message indicating that the build was successful. If there are any errors, they will be displayed in the output window at the bottom of the Netbeans window.
 - You can now click the `Play` button or press `F6` or go to `Run -> Run Project`, if you setup `Netbeans` correctly, web browser should start with the Project running.
+- You should also be able to manage the server from the `Services -> Servers -> GlassFish Server` (start, stop, open admin GUI etc.).
 - Follow the instructions for each project (as they can be different than this) to successfully deploy and run the example.
 
 #### Deploying .war files to GlassFish manually (Linux but it should work on Windows too)
@@ -97,7 +98,7 @@ Here follows instructions and information about each example.
 - You can test `GET`, `POST`, `PUT`, `DELETE`  `HTTP` requests on the Servlet.
 - By calling `PUT` manually you restart the game. By calling `DELETE` you delete the Cookies and Restart the Game (deletes your username, high score etc.) - this will be only available through `cURL` and/or `Postman` as they have different sessions than your browser.
 - This example, showing basic capabilities of Servlets is also a deterrent example of why it is better to use something like `JSP` for `HTML` rendering.
-- Compiled `.war` is added to the root of the projects for easy deployment.
+
 - `Javadoc` documentation has been generated and put into `doc/`.
 
 ##### Multi-File Upload Servlet (/servlet_upload_example/)
@@ -107,7 +108,7 @@ Here follows instructions and information about each example.
 - It's capabilities are to upload multiple files and validate them in some ways (check that they are images, their size etc.).
 - You can also view the uploaded images through simple HTML page.
 - After deploying, you should find it at <http://localhost:8080/servlet_upload_example/> or through `Applications -> Launch` in the `GlassFish Admin GUI`.
-- Compiled `.war` is added to the root of the projects for easy deployment.
+
 - `Javadoc` documentation has been generated and put into `doc/`.
 
 #### JSP Examples 2.0
@@ -120,7 +121,7 @@ Here follows instructions and information about each example.
 - They have been refactored to run out of box with `JDK 17` and `GlassFish 7` and support deployment out of `Netbeans`.
 - The code has been refactored and reformated to use `HTML 5` and `Jakarta EE 10`.
 - New unified `Bootstrap 5 UI` (similar to the new servlet examples) has been created and the functionality of the project has been tested with `GlassFish 7` and `JDK 17`.
-- Compiled `.war` is added to the root of the projects for easy deployment.
+
 - `Javadoc` documentation has been generated and put into `doc/`.
 
 #### JMS Examples
@@ -158,7 +159,7 @@ Here follows instructions and information about each example.
 
 - A Jersey demo showing basic usage of the framework. The application runs at http://localhost:8080/jersey.
 - There are 2 controller Classes, first *Basic* shows basic HTTP GET processing. Second *Arguments* shows retrieving user input multiple ways.
-- Compiled `.war` is added to the root of the projects for easy deployment.
+
 - `Javadoc` documentation has been generated and put into `doc/`.
 
 #### EJB and JSF Examples
@@ -169,14 +170,14 @@ Here follows instructions and information about each example.
 - The stateful bean project shows a bank account bean, which balance is preserved thanks to the bean being stateful across client requests.
 - The stateless bean project is very simillar in structure. This time a @Stateless annotation is used on the bean because there is no point in holding a state of a calculator (at least not in this example, where are no intermediate results)
 - applications runs at http://localhost:8080/StatefullBean and http://localhost:8080/StatelessBean
-- Compiled `.war` is added to the root of the projects for easy deployment.
+
 - `Javadoc` documentation has been generated and put into `doc/`.
 
 ##### JSFPageNavigation
 
 - Showcase of types of navigations between pages that can be used in JSF.  There are navigation rules in *faces-config.xml*, usage of commandLinks and commandButtons. Also a difference between redirection and forwarding. All the necessary information can be found in comments in source code.
 - application runs at http://localhost:8080/JSFPageNavigation
-- Compiled `.war` is added to the root of the projects for easy deployment.
+
 - `Javadoc` documentation has been generated and put into `doc/`.
 
 ##### JSFEventListeners
@@ -187,7 +188,7 @@ Here follows instructions and information about each example.
   - ValueChangeListener which listens on second *selectOneMenu* element in *homepage.xhtml*. There is also shown a direct method call in first *selectOneMenu* element.
 - The listeners (except SystemListener) change values in UserData bean.
 - application runs at http://localhost:8080/JSFEventListeners
-- Compiled `.war` is added to the root of the projects for easy deployment.
+
 - `Javadoc` documentation has been generated and put into `doc/`.
 
 ##### JSFCustomComponent
@@ -195,14 +196,14 @@ Here follows instructions and information about each example.
 - Creation of custom register component in JSF. Take a look at *register.xml* and see its usage in *default.xhtml*.
 - The new component is configured via defined attributes like *<composite:attribute name="emailLabel" />*, which must be provided when you want to use the new component. Then its implementation is rendered.
 - application runs at http://localhost:8080/JSFCustomComponent
-- Compiled `.war` is added to the root of the projects for easy deployment.
+
 - `Javadoc` documentation has been generated and put into `doc/`.
 
 ##### JSFAjax
 
 - in *home.xml* is shown a usage of ajax to change *UserData* bean attribute *name*. After the Ajax call is processed, the *outputText* element is rerendered ( defined in *render="outputMessage"* attribute in *f:ajax* element).
 - application runs at http://localhost:8080/JSFAjax
-- Compiled `.war` is added to the root of the projects for easy deployment.
+
 - `Javadoc` documentation has been generated and put into `doc/`.
 
 #### Primefaces Examples
@@ -233,7 +234,7 @@ Here follows instructions and information about each example.
 - on HTTP request *GuestServlet* checks if parameter *name* is not null. If not, creates a new Guest and saves into the object db
 - The parameter is set via form in *guest.jsp*ä
 - application runs at http://localhost:8080/JPA-EE
-- Compiled `.war` is added to the root of the projects for easy deployment.
+
 - `Javadoc` documentation has been generated and put into `doc/`.
 
 ##### HibernateExample and HibernateAnnotation
