@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"org.primefaces.showcase.domain","l":"Document"},{"p":"org.primefaces.showcase.service","l":"DocumentService"},{"p":"org.primefaces.showcase.view.data.tree","l":"SelectionView"}];updateSearchResults();

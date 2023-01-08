@@ -1,0 +1,3 @@
+org.primefaces.showcase.domain
+org.primefaces.showcase.service
+org.primefaces.showcase.view.data.datatable

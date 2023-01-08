@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"org.primefaces.showcase.view.ajax","c":"CounterView","l":"CounterView()","u":"%3Cinit%3E()"},{"p":"org.primefaces.showcase.view.ajax","c":"CounterView","l":"getNumber()"},{"p":"org.primefaces.showcase.view.ajax","c":"CounterView","l":"increment()"}];updateSearchResults();

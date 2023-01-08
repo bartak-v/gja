@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"org.primefaces.showcase.view.file","c":"FileDownloadView","l":"FileDownloadView()","u":"%3Cinit%3E()"},{"p":"org.primefaces.showcase.view.file","c":"FileDownloadView","l":"getFile()"}];updateSearchResults();
