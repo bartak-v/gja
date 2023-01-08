@@ -138,8 +138,6 @@ Here follows instructions and information about each example.
 
 ##### VUTNews-selenium
 
-##### VUTNews-selenium
-
 - A demo of Selenium using Chrome browser to read news from VUT index page.
 - Usage of properties, dependencyManagement and main class selection in pom.xml.
 - A web browser driver in the root of the project is needed to run the application, a chrome driver can be downloaded at <https://chromedriver.chromium.org/downloads>
