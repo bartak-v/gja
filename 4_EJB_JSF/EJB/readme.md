@@ -1,3 +1,12 @@
+# EJB Examples
+
+##### EJB StatefulBean and StatelessBean
+
+- Two projects showing the difference between stateful and stateless beans.
+- The stateful bean project shows a bank account bean, which balance is preserved thanks to the bean being stateful across client requests.
+- The stateless bean project is very simillar in structure. This time a @Stateless annotation is used on the bean because there is no point in holding a state of a calculator (at least not in this example, where are no intermediate results)
+- applications runs at http://localhost:8080/StatefullBean and http://localhost:8080/StatelessBean
+
 ### Javadoc Documentation
 
 Automatically generated Javadoc documentation can be found in the `doc/` folder in each project subfolder.
@@ -76,12 +85,3 @@ for each project is in the subfolder of the project.
 - Click on the `Applications` on the left again and `Launch` the specified Application. It should show you the links, but we recommend to change the `Context Root` in the application to something like `/servlet_jsp_example` (instead of `/servlet_jsp_example-14374286702991946667.0` etc.) or just leave it and use it as the root of the examples.
 
 - The `.war` file will now be deployed to GlassFish and should be accessible at the specified context root. You can check the URLs we specify in the examples section.
-
-
-# EJB Examples
-
-## EJB StatefullBean and StatelessBean
-- Two projects showing the difference between statefull and stateless beans. 
-- The statefull bean project shows a bank account bean, which balance is preserved thanks to the bean being statefull across client requests.
-- The stateless bean project is very simillar in structure. This time a @Stateless annotation is used on the bean because there is no point in holding a state of a calculator (at least not in this example, where are no intermediate results)
-- applications runs at http://localhost:8080/StatefullBean and http://localhost:8080/StatelessBean

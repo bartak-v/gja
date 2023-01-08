@@ -1,3 +1,22 @@
+# JPA examples
+
+##### JPA-SE
+
+- Shows basic usage of entity manager.
+- The application uses ObjectDB for its easy implementation (no DB configuration needed).
+- Objects of Point class are stored in local object database, then being queried upon.
+- Example shows selecting all points from database and two aggregation functions.
+- Compiled `.jar` is added to the root of the projects for easy deployment.
+
+##### JPA-EE
+
+- The example once again uses ObjectDB.
+- Similar to usage in SE, but this example uses user input and HTTP protocol to create objects to save
+- ServletContextListener initializes object database and closes it on application stop
+- on HTTP request *GuestServlet* checks if parameter *name* is not null. If not, creates a new Guest and saves into the object db
+- The parameter is set via form in *guest.jsp*ä
+- application runs at http://localhost:8080/JPA-EE
+
 ### Javadoc Documentation
 
 Automatically generated Javadoc documentation can be found in the `doc/` folder in each project subfolder.
@@ -76,22 +95,3 @@ for each project is in the subfolder of the project.
 - Click on the `Applications` on the left again and `Launch` the specified Application. It should show you the links, but we recommend to change the `Context Root` in the application to something like `/servlet_jsp_example` (instead of `/servlet_jsp_example-14374286702991946667.0` etc.) or just leave it and use it as the root of the examples.
 
 - The `.war` file will now be deployed to GlassFish and should be accessible at the specified context root. You can check the URLs we specify in the examples section.
-
-
-# JPA Examples
-
-## JPA-SE
-
-- Shows basic usage of entity manager.
-- The application uses ObjectDB for its easy implementation (no DB configuaration needed).
-- Objects of Point class are stored in local object database, then being queried upon.
-- Example shows selecting all points from database and two aggregation functions.
-
-## JPA-EE
-
-- The example once again uses ObjectDB.
-- Similar to usage in SE, but this example uses user input and HTTP protocol to create objects to save
-- ServletContextListener initializes object database and closes it on application stop
-- on HTTP request *GuestServlet* checks if parameter *name* is not null. If not, creates a new Guest and saves into the object db
-- The parameter is set via form in *guest.jsp*ä
-- application runs at http://localhost:8080/JPA-EE

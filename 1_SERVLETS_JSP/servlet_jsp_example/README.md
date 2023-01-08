@@ -1,3 +1,12 @@
+##### Number Guesser Game with Cookies (/servlet_example/ExampleServlet)
+
+- For deployment see [Section on .war deployment](#deploying-war-files-to-GlassFish-linux-but-it-should-work-on-windows-too).
+- The Servlet example is a Random Number Guessing game. The class implements `HTTP` requests and utilizes `Cookies` for primitive session keeping.
+- You can test the Example Servlet via a web browser or "API-testing" program like [Postman](https://www.postman.com/) or `cURL` (manipulating raw HTTP requests sent to e.g.<http://localhost:8080/servlet_jsp_example/ExampleServlet>) - You need to use something like `Postman` to test DELETE and PUT methods - as they can't be called from `HTML` page.
+- You can test `GET`, `POST`, `PUT`, `DELETE`  `HTTP` requests on the Servlet.
+- By calling `PUT` manually you restart the game. By calling `DELETE` you delete the Cookies and Restart the Game (deletes your username, high score etc.) - this will be only available through `cURL` and/or `Postman` as they have different sessions than your browser.
+- This example, showing basic capabilities of Servlets is also a deterrent example of why it is better to use something like `JSP` for `HTML` rendering.
+
 ### Javadoc Documentation
 
 Automatically generated Javadoc documentation can be found in the `doc/` folder in each project subfolder.
@@ -76,14 +85,3 @@ for each project is in the subfolder of the project.
 - Click on the `Applications` on the left again and `Launch` the specified Application. It should show you the links, but we recommend to change the `Context Root` in the application to something like `/servlet_jsp_example` (instead of `/servlet_jsp_example-14374286702991946667.0` etc.) or just leave it and use it as the root of the examples.
 
 - The `.war` file will now be deployed to GlassFish and should be accessible at the specified context root. You can check the URLs we specify in the examples section.
-
-##### Number Guesser Game with Cookies (/servlet_example/ExampleServlet)
-
-- For deployment see [Section on .war deployment](#deploying-war-files-to-GlassFish-linux-but-it-should-work-on-windows-too).
-- The Servlet example is a Random Number Guessing game. The class implements `HTTP` requests and utilizes `Cookies` for primitive session keeping.
-- You can test the Example Servlet via a web browser or "API-testing" program like [Postman](https://www.postman.com/) or `cURL` (manipulating raw HTTP requests sent to e.g.<http://localhost:8080/servlet_jsp_example/ExampleServlet>) - You need to use something like `Postman` to test DELETE and PUT methods - as they can't be called from `HTML` page.
-- You can test `GET`, `POST`, `PUT`, `DELETE`  `HTTP` requests on the Servlet.
-- By calling `PUT` manually you restart the game. By calling `DELETE` you delete the Cookies and Restart the Game (deletes your username, high score etc.) - this will be only available through `cURL` and/or `Postman` as they have different sessions than your browser.
-- This example, showing basic capabilities of Servlets is also a deterrent example of why it is better to use something like `JSP` for `HTML` rendering.
-- Compiled `.war` is added to the root of the projects for easy deployment.
-- `Javadoc` documentation has been generated and put into `doc/`.

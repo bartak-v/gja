@@ -1,3 +1,14 @@
+#### JSP Examples 2.0
+
+- For deployment see [Section on .war deployment](#deploying-war-files-to-GlassFish-linux-but-it-should-work-on-windows-too).
+- After deployment, you should find the app running on <http://localhost:8080/JSPExamples/>
+- This is a set of `JSP` examples that showcase various `JSP` scenarios.
+- User can test simple `calendar`, shopping `cart`, `mail` and `number guesser game`.
+- Instead of creating new `JSP` examples, we have updated and refactored the older GJA `JSP` examples - because they are all-embracing already.
+- They have been refactored to run out of box with `JDK 17` and `GlassFish 7` and support deployment out of `Netbeans`.
+- The code has been refactored and reformated to use `HTML 5` and `Jakarta EE 10`.
+- New unified `Bootstrap 5 UI` (similar to the new servlet examples) has been created and the functionality of the project has been tested with `GlassFish 7` and `JDK 17`.
+
 ### Javadoc Documentation
 
 Automatically generated Javadoc documentation can be found in the `doc/` folder in each project subfolder.
@@ -76,16 +87,3 @@ for each project is in the subfolder of the project.
 - Click on the `Applications` on the left again and `Launch` the specified Application. It should show you the links, but we recommend to change the `Context Root` in the application to something like `/servlet_jsp_example` (instead of `/servlet_jsp_example-14374286702991946667.0` etc.) or just leave it and use it as the root of the examples.
 
 - The `.war` file will now be deployed to GlassFish and should be accessible at the specified context root. You can check the URLs we specify in the examples section.
-
-#### JSP Examples 2.0
-
-- For deployment see [Section on .war deployment](#deploying-war-files-to-GlassFish-linux-but-it-should-work-on-windows-too).
-- After deployment, you should find the app running on <http://localhost:8080/JSPExamples/>
-- This is a set of `JSP` examples that showcase various `JSP` scenarios.
-- User can test simple `calendar`, shopping `cart`, `mail` and `number guesser game`.
-- Instead of creating new `JSP` examples, we have updated and refactored the older GJA `JSP` examples - because they are all-embracing already.
-- They have been refactored to run out of box with `JDK 17` and `GlassFish 7` and support deployment out of `Netbeans`.
-- The code has been refactored and reformated to use `HTML 5` and `Jakarta EE 10`.
-- New unified `Bootstrap 5 UI` (similar to the new servlet examples) has been created and the functionality of the project has been tested with `GlassFish 7` and `JDK 17`.
-- Compiled `.war` is added to the root of the projects for easy deployment.
-- `Javadoc` documentation has been generated and put into `doc/`.

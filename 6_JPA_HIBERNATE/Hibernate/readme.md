@@ -1,3 +1,25 @@
+# Hibernate Example
+
+##### HibernateExample and HibernateAnnotation
+
+- Usage of Hibernate framework. A MySQL connection needs to be configured in *hibernate.cfg.xml*. The example also provides SQL file for table creation.
+- There is a *Employee* class and *Employee.hbm.xml* mapping defined upon the class. The mapping is registered in *hibernate.cfg.xml*.
+- *ManageEmployee* class implements operations:
+  - addBatchEmployees() - usage of persist() and flush() to execute SQL commands in batches
+  - addEmployee(fname, lname, salary) - add record to table
+  - deleteEmployee(ID) - delete record from table by ID
+  - listEmployeesEntity() - select all records
+  - listEmployeesScalar() - projection
+  - updateEmployee(ID, salary) - update record by ID
+- *MyInterceptor* has methods, which are called on Hibernate events like *onSave*.  The interceptor is created when a DB session is created:
+```Java
+// Session session = factory.openSession();
+Session session = factory.withOptions().interceptor(new MyInterceptor()).openSession();
+```
+- HibernateAnnotation is a project (with no functionality) with annotation Employee mapping instead of XML.
+- Compiled `.jar` is added to the root of the projects for easy deployment.
+- `Javadoc` documentation has been generated and put into `doc/`.
+
 ### Javadoc Documentation
 
 Automatically generated Javadoc documentation can be found in the `doc/` folder in each project subfolder.
@@ -76,24 +98,3 @@ for each project is in the subfolder of the project.
 - Click on the `Applications` on the left again and `Launch` the specified Application. It should show you the links, but we recommend to change the `Context Root` in the application to something like `/servlet_jsp_example` (instead of `/servlet_jsp_example-14374286702991946667.0` etc.) or just leave it and use it as the root of the examples.
 
 - The `.war` file will now be deployed to GlassFish and should be accessible at the specified context root. You can check the URLs we specify in the examples section.
-
-
-# Hibernate Examples
-
-## HibernateExample and HibernateAnnotation
-
-- Usage of Hibernate framework. A MySQL connection needs to be configured in *hibernate.cfg.xml*. The example also provides SQL file for table creation.
-- There is a *Employee* class and *Employee.hbm.xml* mapping defined upon the class. The mapping is registered in *hibernate.cfg.xml*.
-- *ManageEmployee* class implements operations:
-      - addBatchEmployees() - usage of persist() and flush() to execute SQL commands in batches
-      - addEmployee(fname, lname, salary) - add record to table
-      - deleteEmployee(ID) - delete record from table by ID
-      - listEmployeesEntity() - select all records
-      - listEmployeesScalar() - projection
-      - updateEmployee(ID, salary) - update record by ID
-- *MyInterceptor* has methods, which are called on Hibernate events like *onSave*.  The interceptor is created when a DB session is created:
-```Java
-// Session session = factory.openSession();
-Session session = factory.withOptions().interceptor(new MyInterceptor()).openSession();
-```
-- HiberhnateAnnotation is a project (with no fuctionality) with annotation Employee mapping instead of XML.

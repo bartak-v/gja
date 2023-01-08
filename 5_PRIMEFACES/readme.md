@@ -1,3 +1,12 @@
+#### Primefaces Examples
+
+- This is a set of examples that showcase some functions of Primefaces 12.0.
+- For deployment see [Section on .war deployment](#deploying-war-files-to-GlassFish-linux-but-it-should-work-on-windows-too).
+- Older examples were adapted and refactored to work with Jakarta EE 10, Glassfish 7 and JDK 17. Other maven dependencies were also updated to latest versions.
+- Incompatible and non-working examples were removed, new ones were added instead.
+- Compiled `.war` files has been added to `_war/` in the root Primefaces directory for easy deployment.
+- `Javadoc` documentation has been generated and put into `doc/` in each example.
+
 ### Javadoc Documentation
 
 Automatically generated Javadoc documentation can be found in the `doc/` folder in each project subfolder.

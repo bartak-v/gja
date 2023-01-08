@@ -1,3 +1,12 @@
+##### Multi-File Upload Servlet (/servlet_upload_example/)
+
+- For deployment see [Section on .war deployment](#deploying-war-files-to-GlassFish-linux-but-it-should-work-on-windows-too).
+- Second Servlet example is an updated Multiple File Upload servlet using the capabilities of `Jakarta EE 10` (`Servlet 3.0+` in-house fileupload).
+- It's capabilities are to upload multiple files and validate them in some ways (check that they are images, their size etc.).
+- You can also view the uploaded images through simple HTML page.
+- After deploying, you should find it at <http://localhost:8080/servlet_upload_example/> or through `Applications -> Launch` in the `GlassFish Admin GUI`.
+
+
 ### Javadoc Documentation
 
 Automatically generated Javadoc documentation can be found in the `doc/` folder in each project subfolder.
@@ -76,13 +85,3 @@ for each project is in the subfolder of the project.
 - Click on the `Applications` on the left again and `Launch` the specified Application. It should show you the links, but we recommend to change the `Context Root` in the application to something like `/servlet_jsp_example` (instead of `/servlet_jsp_example-14374286702991946667.0` etc.) or just leave it and use it as the root of the examples.
 
 - The `.war` file will now be deployed to GlassFish and should be accessible at the specified context root. You can check the URLs we specify in the examples section.
-
-##### Multi-File Upload Servlet (/servlet_upload_example/)
-
-- For deployment see [Section on .war deployment](#deploying-war-files-to-GlassFish-linux-but-it-should-work-on-windows-too).
-- Second Servlet example is an updated Multiple File Upload servlet using the capabilities of `Jakarta EE 10` (`Servlet 3.0+` in-house fileupload).
-- It's capabilities are to upload multiple files and validate them in some ways (check that they are images, their size etc.).
-- You can also view the uploaded images through simple HTML page.
-- After deploying, you should find it at <http://localhost:8080/servlet_upload_example/> or through `Applications -> Launch` in the `GlassFish Admin GUI`.
-- Compiled `.war` is added to the root of the projects for easy deployment.
-- `Javadoc` documentation has been generated and put into `doc/`.
