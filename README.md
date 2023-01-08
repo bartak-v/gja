@@ -3,7 +3,7 @@
 A Java examples project for GJA class at BUT FIT.
 This is the global readme with all information and all examples.
 This readme has been copied (and further specified for concrete examples) in each of the examples folders so they can be distributed separately.
-Also the `.war` files are included with each project for people that just want to try them out without installing the necessary development tools.
+Also the `.war` files are included with each project for people that just want to try them out without installing the necessary development tools (only in GitHub repo).
 
 ### Javadoc Documentation
 
