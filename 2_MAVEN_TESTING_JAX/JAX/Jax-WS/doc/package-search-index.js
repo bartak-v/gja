@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"cz.vutbr.fit.knot.gja.ws"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"cz.vutbr.fit.knot.gja.ws.client"},{"l":"cz.vutbr.fit.knot.gja.ws.server"}];updateSearchResults();

@@ -113,14 +113,18 @@ for each project is in the subfolder of the project.
 
 ##### VUTNews-selenium
 
+##### VUTNews-selenium
+
 - A demo of Selenium using Chrome browser to read news from VUT index page.
 - Usage of properties, dependencyManagement and main class selection in pom.xml.
+- A web browser driver in root of the project is needed to run the application, a chrome driver can be downloaded at https://chromedriver.chromium.org/downloads
 - Compiled `.jar` is added to the root of the projects for easy deployment.
 - `Javadoc` documentation has been generated and put into `doc/`.
 
 ##### JAX -WS
 
 - Client and publisher, first run publisher. Client then connects to the publisher at port 6666 (if the port is not free on your machine, change it) and retrieves object HelloWorld. The call *hello.getHelloWorldAsString("fit")* seems to be executed on client side but it is actually executed in the publisher app and the result is retrieved through the port.
+- There are also Client and Server handlers. Client handler adds MacAddress to request, Server handler reads it and validates. The handler configuration is in *handler-client.xml* and *handler-server.xml*.
 - Compiled `.jar` is added to the root of the projects for easy deployment.
 - `Javadoc` documentation has been generated and put into `doc/`.
 
