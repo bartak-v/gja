@@ -9,4 +9,4 @@
 ## VUTNews-selenium
 
 - A demo of Selenium using Chrome browser to read news from VUT index page.
-- Usage of properties, dependencyManagement and main class selection in pom.xml. 
+- Usage of properties, dependencyManagement and main class selection in pom.xml.
