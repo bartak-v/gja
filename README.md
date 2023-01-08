@@ -7,7 +7,7 @@ Also the `.war` files are included with each project for people that just want t
 
 ### Javadoc Documentation
 
-Automatically generated Javadoc documentation can be found in the `doc/` folder, either in the root of this repo or in each project subfolder.
+Automatically generated Javadoc documentation can be found in the `doc/` folder in each project subfolder.
 Open the `index.html` in each documentation to see the Javadoc.
 
 ### Prerequisites
@@ -173,7 +173,7 @@ Open the `index.html` in each documentation to see the Javadoc.
 - This is a set of examples that showcase some functions of Primefaces 12.0.
 - For deployment see [Section on .war deployment](#deploying-war-files-to-GlassFish-linux-but-it-should-work-on-windows-too).
 - Older examples were adapted and refactored to work with Jakarta EE 10, Glassfish 7 and JDK 17. Other maven dependencies were also updated to latest versions.
-- Incompatible examples were removed (total of 3), new ones were added instead.
+- Incompatible and non-working examples were removed, new ones were added instead.
 - Compiled `.war` files has been added to `_war/` in the root Primefaces directory for easy deployment.
 - `Javadoc` documentation has been generated and put into `doc/` in each example.
 

@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"cz.vutbr.fit.knot.gja.ws","l":"HelloWorld"},{"p":"cz.vutbr.fit.knot.gja.ws","l":"HelloWorldClient"},{"p":"cz.vutbr.fit.knot.gja.ws","l":"HelloWorldImpl"},{"p":"cz.vutbr.fit.knot.gja.ws","l":"HelloWorldPublisher"}];updateSearchResults();

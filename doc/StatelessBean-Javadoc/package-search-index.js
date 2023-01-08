@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"net.roseindia.ejb4.stateless.example"}];updateSearchResults();
