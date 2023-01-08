@@ -4,7 +4,7 @@
 
 - Client and publisher, first run publisher. Client then connects to the publisher at port 6666 (if the port is not free on your machine, change it) and retrieves object HelloWorld. The call *hello.getHelloWorldAsString("fit")* seems to be executed on client side but it is actually executed in the publisher app and the result is retrieved through the port.
 - There are also Client and Server handlers. Client handler adds MacAddress to request, Server handler reads it and validates. The handler configuration is in *handler-client.xml* and *handler-server.xml*.
-- Compiled `.jar` is added to the root of the projects for easy deployment.
+
 
 ##### Jersey
 

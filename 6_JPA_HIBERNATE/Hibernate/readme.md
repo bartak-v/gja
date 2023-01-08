@@ -17,7 +17,7 @@
 Session session = factory.withOptions().interceptor(new MyInterceptor()).openSession();
 ```
 - HibernateAnnotation is a project (with no functionality) with annotation Employee mapping instead of XML.
-- Compiled `.jar` is added to the root of the projects for easy deployment.
+
 - `Javadoc` documentation has been generated and put into `doc/`.
 
 ### Javadoc Documentation

@@ -133,7 +133,6 @@ Here follows instructions and information about each example.
 - Demo shows usage of unit testing in Java using JUnit and also integration testing using Arquillian
 - Unit tests are implemented on Calculator class, testing the results of basic mathematical operations
 - Integration tests are implemented on Student class. A student injects Calculator. This dependency injection is then tested using Arquillian.
-- Compiled `.jar` is added to the root of the projects for easy deployment.
 - `Javadoc` documentation has been generated and put into `doc/`.
 
 ##### VUTNews-selenium
@@ -141,14 +140,12 @@ Here follows instructions and information about each example.
 - A demo of Selenium using Chrome browser to read news from VUT index page.
 - Usage of properties, dependencyManagement and main class selection in pom.xml.
 - A web browser driver in the root of the project is needed to run the application, a chrome driver can be downloaded at <https://chromedriver.chromium.org/downloads>
-- Compiled `.jar` is added to the root of the projects for easy deployment.
 - `Javadoc` documentation has been generated and put into `doc/`.
 
 ##### JAX -WS
 
 - Client and publisher, first run publisher. Client then connects to the publisher at port 6666 (if the port is not free on your machine, change it) and retrieves object HelloWorld. The call *hello.getHelloWorldAsString("fit")* seems to be executed on client side but it is actually executed in the publisher app and the result is retrieved through the port.
 - There are also Client and Server handlers. Client handler adds MacAddress to request, Server handler reads it and validates. The handler configuration is in *handler-client.xml* and *handler-server.xml*.
-- Compiled `.jar` is added to the root of the projects for easy deployment.
 - `Javadoc` documentation has been generated and put into `doc/`.
 
 ##### Jersey
@@ -218,7 +215,6 @@ Here follows instructions and information about each example.
 - The application uses ObjectDB for its easy implementation (no DB configuration needed).
 - Objects of Point class are stored in local object database, then being queried upon.
 - Example shows selecting all points from database and two aggregation functions.
-- Compiled `.jar` is added to the root of the projects for easy deployment.
 - `Javadoc` documentation has been generated and put into `doc/`.
 
 ##### JPA-EE
@@ -249,5 +245,4 @@ Here follows instructions and information about each example.
 Session session = factory.withOptions().interceptor(new MyInterceptor()).openSession();
 ```
 - HibernateAnnotation is a project (with no functionality) with annotation Employee mapping instead of XML.
-- Compiled `.jar` is added to the root of the projects for easy deployment.
 - `Javadoc` documentation has been generated and put into `doc/`.

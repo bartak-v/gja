@@ -6,7 +6,7 @@
 - The application uses ObjectDB for its easy implementation (no DB configuration needed).
 - Objects of Point class are stored in local object database, then being queried upon.
 - Example shows selecting all points from database and two aggregation functions.
-- Compiled `.jar` is added to the root of the projects for easy deployment.
+
 
 ##### JPA-EE
 
