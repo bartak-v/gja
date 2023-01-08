@@ -14,8 +14,8 @@ import org.primefaces.push.annotation.Singleton;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
  
-import javax.inject.Inject;
-import javax.servlet.ServletContext;
+import jakarta.inject.Inject;
+import jakarta.servlet.ServletContext;
  
 @PushEndpoint("/{room}/{user}")
 @Singleton

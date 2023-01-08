@@ -5,11 +5,11 @@ package org.primefaces.showcase.view.input;
  
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
-import javax.inject.Named;
+import jakarta.faces.application.FacesMessage;
+import jakarta.faces.context.FacesContext;
+import jakarta.inject.Named;
 import org.primefaces.PrimeFaces;
-import javax.enterprise.context.RequestScoped;
+import jakarta.enterprise.context.RequestScoped;
 import org.primefaces.context.PrimeFacesContext;
  
 import org.primefaces.event.SelectEvent;

@@ -3,9 +3,9 @@
  */
 package org.primefaces.showcase.view.file;
  
-import javax.enterprise.context.RequestScoped;
-import javax.faces.context.FacesContext;
-import javax.inject.Named;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.faces.context.FacesContext;
+import jakarta.inject.Named;
  
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
