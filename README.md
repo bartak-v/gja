@@ -15,12 +15,19 @@ Open the `index.html` in each documentation to see the Javadoc.
  The project was developed in [Apache Netbeans 16](https://netbeans.apache.org/download/index.html) with [Eclipse Temurin JDK 17](https://adoptium.net/temurin/releases/?version=17) and [Eclipse GlassFish 7](https://projects.eclipse.org/projects/ee4j.GlassFish/releases/7.0.0) (`Jakarta EE 10 API`). Other prerequisite is that the user is somehow familiar with deploying Java Web Applications onto the server. If not, user can read
  the provided documentation.
 
+### Precompiled .war files
+
+- For people, that just want to try the project, but don't want to build it themselves, they can download compiled `.war` files from the project's github <https://github.com/bartak-v/gja>. The `.war` file
+for each project is in the subfolder of the project.
+
 ### Installation and run
 
 - Install `GlassFish 7`
 - Run `GlassFish` (either manually or through Netbeans)
 - Deploy the compiled `.war` file onto the `GlassFish` server (defaultly through [http://localhost:4848](http://localhost:4848))
 - You can also build the project yourself through standard practice in `Netbeans` (or manually using `Maven`).
+
+### Building and deploying the 
 
 ### Deploying .war files to GlassFish (Linux but it should work on Windows too)
 
