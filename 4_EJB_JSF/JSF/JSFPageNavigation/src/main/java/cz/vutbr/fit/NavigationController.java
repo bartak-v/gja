@@ -6,6 +6,7 @@ package cz.vutbr.fit;
 
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.faces.annotation.ManagedProperty;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
 /**
@@ -19,6 +20,7 @@ import jakarta.inject.Named;
 public class NavigationController {
 
     private static final long serialVersionUID = 1L;
+    @Inject
     @ManagedProperty(value = "#{param.pageId}")
     private String pageId;
 
