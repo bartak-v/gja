@@ -15,7 +15,10 @@ import jakarta.servlet.ServletContextEvent;
  */
 public class GuestListener implements ServletContextListener {
 
-    // Prepare the EntityManagerFactory & Enhance:
+    /**
+     * Prepare the EntityManagerFactory {@literal &} Enhance
+     * @param e server context event
+     */
     @Override
     public void contextInitialized(ServletContextEvent e) {
         com.objectdb.Enhancer.enhance("guest.*");
@@ -24,7 +27,12 @@ public class GuestListener implements ServletContextListener {
         e.getServletContext().setAttribute("emf", emf);
     }
 
-    // Release the EntityManagerFactory:
+    // 
+
+    /**
+     * Release the EntityManagerFactory
+     * @param e server context event
+     */
     @Override
     public void contextDestroyed(ServletContextEvent e) {
         EntityManagerFactory emf

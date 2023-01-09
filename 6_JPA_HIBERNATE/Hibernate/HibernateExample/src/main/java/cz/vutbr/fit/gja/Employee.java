@@ -1,54 +1,88 @@
 /*
  * Adapted from http://www.tutorialspoint.com/hibernate/hibernate_native_sql.htm
  */
-
 package cz.vutbr.fit.gja;
 
+/**
+ * A simple entity used in this example.
+ */
 public class Employee {
 
-  private int id;
-  private String firstName;
-  private String lastName;
-  private int salary;
+    private int id;
+    private String firstName;
+    private String lastName;
+    private int salary;
 
-  public Employee() {
-  }
+    /**
+     * Empty constructor for serialization
+     */
+    public Employee() {
+    }
 
-  public Employee(String fname, String lname, int salary) {
-    this.firstName = fname;
-    this.lastName = lname;
-    this.salary = salary;
-  }
+    /**
+     * @param fname First name
+     * @param lname Last name
+     * @param salary employee salary
+     */
+    public Employee(String fname, String lname, int salary) {
+        this.firstName = fname;
+        this.lastName = lname;
+        this.salary = salary;
+    }
 
-  public int getId() {
-    return id;
-  }
+    /**
+     * @return employee id. Not null after persisting
+     */
+    public int getId() {
+        return id;
+    }
 
-  public void setId(int id) {
-    this.id = id;
-  }
+    /**
+     * @param id employee id used as primary key to DB
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
 
-  public String getFirstName() {
-    return firstName;
-  }
+    /**
+     * @return employee first name
+     */
+    public String getFirstName() {
+        return firstName;
+    }
 
-  public void setFirstName(String first_name) {
-    this.firstName = first_name;
-  }
+    /**
+     * @param first_name First name
+     */
+    public void setFirstName(String first_name) {
+        this.firstName = first_name;
+    }
 
-  public String getLastName() {
-    return lastName;
-  }
+    /**
+     * @return employee last name
+     */
+    public String getLastName() {
+        return lastName;
+    }
 
-  public void setLastName(String last_name) {
-    this.lastName = last_name;
-  }
+    /**
+     * @param last_name Last name
+     */
+    public void setLastName(String last_name) {
+        this.lastName = last_name;
+    }
 
-  public int getSalary() {
-    return salary;
-  }
+    /**
+     * @return employee salary
+     */
+    public int getSalary() {
+        return salary;
+    }
 
-  public void setSalary(int salary) {
-    this.salary = salary;
-  }
+    /**
+     * @param salary employee salary
+     */
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
 }

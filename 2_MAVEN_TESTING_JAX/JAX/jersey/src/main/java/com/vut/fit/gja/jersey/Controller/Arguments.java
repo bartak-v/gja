@@ -27,7 +27,7 @@ public class Arguments {
      *
      * @param id
      * @return String that represents the item (may be fetched from DB) try curl
-     * http://localhost:8081/items/5 or open in browser
+     * http://localhost:8080/jersey/example/items/4 or open in browser
      *
      */
     @GET
@@ -45,7 +45,7 @@ public class Arguments {
      *
      * @param name
      * @return String that represents items (may be fetched from DB) try curl
-     * http://localhost:8081/items/search?name=jogurt or open in browser
+     * http://localhost:8080/jersey/example/items/search?name=jogurt or open in browser
      *
      */
     @GET
@@ -67,7 +67,7 @@ public class Arguments {
      * @return String that contains submitted values. Try curl -X POST -H \
      * 'Content-Type:application/x-www-form-urlencoded' \ -d
      * 'deliveryAddress=Brno VUT FIT{@literal &}quantity=500' \
-     * http://localhost:8081/items/place-order
+     * http://localhost:8080/jersey/example/items/place-order
      *
      */
     @POST
@@ -88,7 +88,7 @@ public class Arguments {
      * @param itemOrder
      * @return String that contains submitted values. Try curl -X POST -H \
      * 'Content-Type:application/x-www-form-urlencoded' --header \
-     * 'coupon:FREE10p' -d total=70 http://localhost:8081/items/28711
+     * 'coupon:FREE10p' -d total=70 http://localhost:8080/jersey/example/items/28711
      */
     @POST
     @Produces(MediaType.APPLICATION_JSON)

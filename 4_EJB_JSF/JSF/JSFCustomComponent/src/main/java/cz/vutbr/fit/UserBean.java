@@ -18,7 +18,7 @@ public class UserBean implements Serializable {
 
     /**
      *
-     * @return name
+     * @return user's name
      */
     public String getName() {
         return name;
@@ -26,7 +26,7 @@ public class UserBean implements Serializable {
 
     /**
      *
-     * @param name
+     * @param name user's name
      */
     public void setName(String name) {
         this.name = name;
@@ -34,7 +34,7 @@ public class UserBean implements Serializable {
 
     /**
      *
-     * @return email
+     * @return user's email
      */
     public String getEmail() {
         return email;
@@ -42,7 +42,7 @@ public class UserBean implements Serializable {
 
     /**
      *
-     * @param email
+     * @param email user's email
      */
     public void setEmail(String email) {
         this.email = email;

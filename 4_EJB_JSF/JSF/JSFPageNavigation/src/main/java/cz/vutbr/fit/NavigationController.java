@@ -24,7 +24,7 @@ public class NavigationController {
 
     /**
      *
-     * @return "page1"
+     * @return String "page1"
      */
     public String moveToPage1() {
         // JSF will guess the page by returned value "page1" and will find page1.xhtml
@@ -33,7 +33,7 @@ public class NavigationController {
 
     /**
      *
-     * @return "page2"
+     * @return String "page2"
      */
     public String moveToPage2() {
         // JSF will guess the page by returned value "page2" and will find page2.xhtml
@@ -42,7 +42,7 @@ public class NavigationController {
 
     /**
      *
-     * @return "home"
+     * @return String "home"
      */
     public String moveToHomePage() {
         // JSF will guess the page by returned value "home" and will find home.xhtml
@@ -77,7 +77,7 @@ public class NavigationController {
     /**
      * see faces-config.xml
      *
-     * @return "page", which will result into redirecting to page1.xhtml
+     * @return String "page", which will result into redirecting to page1.xhtml
      * according to navigation rule in faces-config.xml
      */
     public String processPage1() {
@@ -88,7 +88,7 @@ public class NavigationController {
      *
      * see faces-config.xml
      *
-     * @return "page", which will result into redirecting to page2.xhtml
+     * @return String "page", which will result into redirecting to page2.xhtml
      * according to navigation rule in faces-config.xml
      */
     public String processPage2() {
@@ -97,7 +97,7 @@ public class NavigationController {
 
     /**
      *
-     * @return pageId
+     * @return pageId managed property
      */
     public String getPageId() {
         return pageId;
@@ -105,7 +105,7 @@ public class NavigationController {
 
     /**
      *
-     * @param pageId
+     * @param pageId managed property
      */
     public void setPageId(String pageId) {
         this.pageId = pageId;

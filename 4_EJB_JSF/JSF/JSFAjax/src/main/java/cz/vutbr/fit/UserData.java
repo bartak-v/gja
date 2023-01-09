@@ -17,23 +17,20 @@ public class UserData implements Serializable {
     private String name;
 
     /**
-     *
-     * @return name
+     * @return user's name
      */
     public String getName() {
         return name;
     }
 
     /**
-     *
-     * @param name
+     * @param name user's name
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     *
      * @return a welcome message containing user's name
      */
     public String getWelcomeMessage() {

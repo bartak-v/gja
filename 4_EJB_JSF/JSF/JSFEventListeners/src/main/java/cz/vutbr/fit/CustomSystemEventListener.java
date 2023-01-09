@@ -22,7 +22,9 @@ public class CustomSystemEventListener implements SystemEventListener {
 
     /**
      * Prints text to stdout on aplication start and termination.
-     * @param event
+     *
+     * @param event event holding information about the system event
+     * occured
      * @throws AbortProcessingException
      */
     @Override

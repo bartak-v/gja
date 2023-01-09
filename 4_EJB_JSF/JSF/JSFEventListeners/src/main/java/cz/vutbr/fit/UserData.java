@@ -34,10 +34,11 @@ public class UserData implements Serializable {
     }
 
     /**
-     * Method directly called by <h:selectOneMenu/> element, configured in
+     * Method directly called by {@literal <}h:selectOneMenu/{@literal >} element, configured in
      * valueChangeListener attribute
      *
-     * @param e
+     * @param e value change event holding information about the change in
+     * selectOneMenu
      */
     public void localeChanged(ValueChangeEvent e) {
         //assign new value to country
@@ -45,8 +46,8 @@ public class UserData implements Serializable {
     }
 
     /**
-     * Method called by <f:event/> element in home.xhtml
-     * @param event
+     * Method called by {@literal <}f:event/{@literal >} element in home.xhtml
+     * @param event fired when page is rendered
      */
     public void preRenderView(ComponentSystemEvent event) {
         System.out.println("pre render event fired");
@@ -62,7 +63,7 @@ public class UserData implements Serializable {
 
     /**
      *
-     * @return selected country
+     * @return user's selected coutnry
      */
     public String getSelectedCountry() {
         return selectedCountry;
@@ -70,7 +71,7 @@ public class UserData implements Serializable {
 
     /**
      *
-     * @param selectedCountry
+     * @param selectedCountry user's selected coutnry
      */
     public void setSelectedCountry(String selectedCountry) {
         this.selectedCountry = selectedCountry;
@@ -78,7 +79,7 @@ public class UserData implements Serializable {
 
     /**
      *
-     * @return secondCountry
+     * @return user's second country
      */
     public String getSecondCountry() {
         return secondCountry;
@@ -86,7 +87,7 @@ public class UserData implements Serializable {
 
     /**
      *
-     * @param selectedCountry
+     * @param selectedCountry user's second coutnry
      */
     public void setSecondCountry(String selectedCountry) {
         this.secondCountry = selectedCountry;

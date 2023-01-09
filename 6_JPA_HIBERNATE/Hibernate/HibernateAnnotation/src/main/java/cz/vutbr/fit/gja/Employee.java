@@ -39,70 +39,73 @@ public class Employee implements Serializable {
     private int salary;
 
     /**
-     * Empty constructor
+     * Empty constructor for serialization
      */
     public Employee() {
     }
 
     /**
-     *
-     * @return id
+     * @param fname First name
+     * @param lname Last name
+     * @param salary employee salary
+     */
+    public Employee(String fname, String lname, int salary) {
+        this.firstName = fname;
+        this.lastName = lname;
+        this.salary = salary;
+    }
+
+    /**
+     * @return employee id. Not null after persisting
      */
     public int getId() {
         return id;
     }
 
     /**
-     *
-     * @param id
+     * @param id employee id used as primary key to DB
      */
     public void setId(int id) {
         this.id = id;
     }
 
     /**
-     *
-     * @return firstName
+     * @return employee first name
      */
     public String getFirstName() {
         return firstName;
     }
 
     /**
-     *
-     * @param first_name
+     * @param first_name First name
      */
     public void setFirstName(String first_name) {
         this.firstName = first_name;
     }
 
     /**
-     *
-     * @return lastName
+     * @return employee last name
      */
     public String getLastName() {
         return lastName;
     }
 
     /**
-     *
-     * @param last_name
+     * @param last_name Last name
      */
     public void setLastName(String last_name) {
         this.lastName = last_name;
     }
 
     /**
-     *
-     * @return salary
+     * @return employee salary
      */
     public int getSalary() {
         return salary;
     }
 
     /**
-     *
-     * @param salary
+     * @param salary employee salary
      */
     public void setSalary(int salary) {
         this.salary = salary;

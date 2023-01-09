@@ -15,32 +15,32 @@ public interface CalculatorRemote {
 
     /**
      *
-     * @param x
-     * @param y
+     * @param x first operand
+     * @param y second operand
      * @return x + y
      */
     public float add(float x, float y);
 
     /**
      *
-     * @param x
-     * @param y
+     * @param x first operand
+     * @param y second operand
      * @return x - y
      */
     public float subtract(float x, float y);
 
     /**
      *
-     * @param x
-     * @param y
+     * @param x first operand
+     * @param y second operand
      * @return x * y
      */
     public float multiply(float x, float y);
 
     /**
      *
-     * @param x
-     * @param y
+     * @param x first operand
+     * @param y second operand
      * @return x / y
      */
     public float division(float x, float y);

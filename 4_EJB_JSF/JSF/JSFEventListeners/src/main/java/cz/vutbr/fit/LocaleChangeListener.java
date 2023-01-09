@@ -21,7 +21,8 @@ public class LocaleChangeListener implements ValueChangeListener {
      * On value change (Second country combobox), Get the new value and set it
      * to UserData bean.
      *
-     * @param event
+     * @param event value change event holding information about the change in
+     * selectOneMenu
      * @throws AbortProcessingException
      */
     @Override

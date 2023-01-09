@@ -37,7 +37,7 @@
                         </goals>
                         <configuration>
                             <executable>${java.home}/bin/java</executable>
-                            <mainClass>cz.vutbr.fit.knot.gja.ws.HelloWorldClient</mainClass>
+                            <mainClass>cz.vutbr.fit.knot.gja.ws.client.HelloWorldClient</mainClass>
                         </configuration>
                     </execution>
                     <execution>
@@ -47,7 +47,7 @@
                         </goals>
                         <configuration>
                             <executable>${java.home}/bin/java</executable>
-                            <mainClass>cz.vutbr.fit.knot.gja.ws.HelloWorldPublisher</mainClass>
+                            <mainClass>cz.vutbr.fit.knot.gja.ws.server.HelloWorldPublisher</mainClass>
                         </configuration>
                     </execution>
                 </executions>

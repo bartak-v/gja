@@ -22,8 +22,8 @@ public class GuestServlet extends HttpServlet {
      * guest and persist it to the local ObjectDb. Sets request attribute
      * "guests" with all the guests retrieved from DB and forwards to guest.jsp
      *
-     * @param request
-     * @param response
+     * @param request client request
+     * @param response server response
      * @throws ServletException
      * @throws IOException
      */
@@ -62,8 +62,8 @@ public class GuestServlet extends HttpServlet {
      * Listens to POST request, calls doGet to make no difference between POST
      * and GET HTTP requests
      *
-     * @param request
-     * @param response
+     * @param request client request
+     * @param response server response
      * @throws ServletException
      * @throws IOException
      */

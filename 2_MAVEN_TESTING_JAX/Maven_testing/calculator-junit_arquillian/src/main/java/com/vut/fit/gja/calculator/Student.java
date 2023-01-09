@@ -18,9 +18,9 @@ public class Student {
     /**
      * The student uses the injected Calculator to calculate return value.
      *
-     * @param a
-     * @param b
-     * @return student answer of a + b
+     * @param a first operand
+     * @param b second operand
+     * @return student answer of a + b, in format "The answer is {x+y}"
      */
     public String answerAddition(int a, int b) {
 

@@ -22,7 +22,7 @@ public class AccountBean implements AccountRemote {
     /**
      *
      * Adds amount to current account balance
-     * @param amount
+     * @param amount amount to deposit
      * @return new account balance
      */
     @Override
@@ -35,7 +35,7 @@ public class AccountBean implements AccountRemote {
     /**
      *
      * Subtracts amount to current account balance
-     * @param amount
+     * @param amount amount to withdraw
      * @return new account balance
      */
   @Override

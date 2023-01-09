@@ -35,7 +35,7 @@ public class Guest implements Serializable {
     /**
      * Initializes signingDate to current
      *
-     * @param name
+     * @param name guest's name
      */
     public Guest(String name) {
         this.name = name;

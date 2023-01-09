@@ -18,8 +18,8 @@ public class CalculatorBean implements CalculatorRemote {
 
     /**
      *
-     * @param x
-     * @param y
+     * @param x first operand
+     * @param y second operand
      * @return x + y
      */
     @Override
@@ -29,8 +29,8 @@ public class CalculatorBean implements CalculatorRemote {
 
     /**
      *
-     * @param x
-     * @param y
+     * @param x first operand
+     * @param y second operand
      * @return x - y
      */
     @Override
@@ -40,8 +40,8 @@ public class CalculatorBean implements CalculatorRemote {
 
     /**
      *
-     * @param x
-     * @param y
+     * @param x first operand
+     * @param y second operand
      * @return x * y
      */
     @Override
@@ -51,8 +51,8 @@ public class CalculatorBean implements CalculatorRemote {
 
     /**
      *
-     * @param x
-     * @param y
+     * @param x first operand
+     * @param y second operand
      * @return x / y
      */
     @Override

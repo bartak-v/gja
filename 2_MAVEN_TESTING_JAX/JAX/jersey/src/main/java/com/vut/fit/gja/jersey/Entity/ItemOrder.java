@@ -12,9 +12,12 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class ItemOrder {
 
+    /**
+     * Empty Constructor for serialization
+     */
     public ItemOrder() {
     }
-    
+
     @HeaderParam("coupon")
     private String coupon;
 
@@ -34,7 +37,7 @@ public class ItemOrder {
 
     /**
      *
-     * @param coupon
+     * @param coupon coupon, header parameter
      */
     public void setCoupon(String coupon) {
         this.coupon = coupon;
@@ -42,7 +45,7 @@ public class ItemOrder {
 
     /**
      *
-     * @return id parh parameter
+     * @return id path parameter
      */
     public Long getId() {
         return id;
@@ -50,7 +53,7 @@ public class ItemOrder {
 
     /**
      *
-     * @param id
+     * @param id item id, path parameter
      */
     public void setId(Long id) {
         this.id = id;
@@ -66,7 +69,7 @@ public class ItemOrder {
 
     /**
      *
-     * @param total
+     * @param total total count, form parameter
      */
     public void setTotal(Double total) {
         this.total = total;

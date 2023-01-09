@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.vut.fit.gja.jersey"},{"l":"com.vut.fit.gja.jersey.controller"},{"l":"com.vut.fit.gja.jersey.entity"},{"l":"com.vut.fit.gja.jersey.repository"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.vut.fit.gja.jersey.controller"},{"l":"com.vut.fit.gja.jersey.entity"},{"l":"com.vut.fit.gja.jersey.repository"}];updateSearchResults();

@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  *
- * A Class representing repository for Item Entity.
+ * A Class representing repository for Item entity.
  */
 public class ItemRepository {
 
@@ -25,10 +25,9 @@ public class ItemRepository {
     }
 
     /**
-     * Returns list of items with matching names.
      *
-     * @param name
-     * @return
+     * @param name search
+     * @return list of items with matching name
      */
     public ArrayList<Item> findItemsByName(String name) {
 
@@ -45,8 +44,8 @@ public class ItemRepository {
      * Returns Item with matching id. If no matching item is found, null
      * returned.
      *
-     * @param id
-     * @return
+     * @param id search
+     * @return item with matching id
      */
     public Item findItemsById(int id) {
 

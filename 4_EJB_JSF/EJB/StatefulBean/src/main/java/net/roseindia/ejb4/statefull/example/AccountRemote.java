@@ -18,7 +18,7 @@ public interface AccountRemote {
      *
      * Adds amount to current account balance
      *
-     * @param amount
+     * @param amount amount to deposit
      * @return new account balance
      */
     public float deposit(float amount);
@@ -27,7 +27,7 @@ public interface AccountRemote {
      *
      * Subtracts amount to current account balance
      *
-     * @param amount
+     * @param amount amount to withdraw
      * @return new account balance
      */
     public float withdraw(float amount);

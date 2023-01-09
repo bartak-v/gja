@@ -4,31 +4,26 @@ import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 
 /**
  * Root resource (exposed at "/basic" path)
  */
-@Path("links")
+@Path("basic")
 public class Basic {
 
+
     /**
-     * Method handling HTTP GET requests.The returned object will be sent to
- the client as "text/plain" media type.
+     * Method handling HTTP GET requests.The returned object will be sent to the
+     * client as "text/plain" media type.
      *
      * @return String that will be returned as a text/plain response. try curl
-     * http://localhost:8081/basic or open in browser
-     * @throws java.io.FileNotFoundException
+     * http://localhost:8080/jersey/example/basic or open in browser
      */
     @GET
-    @Produces(MediaType.TEXT_HTML)
-    public InputStream getIt() throws FileNotFoundException {
+    @Produces(MediaType.TEXT_PLAIN)
+    public String getIt() {
 
-        File f = new File("src/main/webapp/page.html");
-        return new FileInputStream(f);
+        return "got it!";
     }
 
 }

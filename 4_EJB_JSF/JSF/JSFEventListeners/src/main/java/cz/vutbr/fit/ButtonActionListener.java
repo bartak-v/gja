@@ -16,7 +16,7 @@ public class ButtonActionListener implements ActionListener {
     /**
      * On button pressed, resets UserData bean countries to default
      *
-     * @param event
+     * @param event action event holding information about the button click
      * @throws AbortProcessingException
      */
     @Override
