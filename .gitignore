@@ -23,7 +23,7 @@ hs_err_pid*
 
 # glassfish
 glassfish7/
-*/target/*
+*/target/**
 /1_SERVLETS_JSP/servlet_jsp_example/target/
 /1_SERVLETS_JSP/servlet_upload_example/target/
 /1_SERVLETS_JSP/jsp_example/target/
